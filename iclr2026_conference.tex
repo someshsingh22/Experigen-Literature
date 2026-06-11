@@ -1,0 +1,90 @@
+\documentclass{article}
+
+\usepackage{iclr2026_conference,times}
+
+% Math notation (optional)
+\input{math_commands.tex}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb,amsthm}
+% ============================================================
+% Author Comments
+% ============================================================
+
+\usepackage{xcolor}
+
+% Toggle comments globally 
+\newif\ifcomments
+\commentstrue
+% \commentsfalse
+
+\ifcomments
+
+% Inline comments
+\newcommand{\somesh}[1]{\textcolor{red}{\textbf{[Somesh: #1]}}}
+\newcommand{\todo}[1]{\textcolor{magenta}{\textbf{[TODO: #1]}}}
+\newcommand{\namit}[1]{\textcolor{blue}{\textbf{[Somesh: #1]}}}
+\else
+
+% Hide comments in final version
+% \newcommand{\ayush}[1]{}
+% \newcommand{\somesh}[1]{}
+% \newcommand{\todo}[1]{}
+
+\fi
+
+% Uncomment for camera-ready version
+% \iclrfinalcopy
+
+\title{Guiding Hypothesis Generation in Social Science with literature}
+
+\author{
+Anonymous Authors \\
+Paper under double-blind review
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+% ============================================================
+% Main Paper
+% ============================================================
+
+\input{sections/introduction}
+
+
+\input{sections/background}
+
+\input{sections/method}
+
+\input{sections/experiments}
+
+\input{sections/results}
+
+\input{sections/discussion}
+
+\input{sections/conclusion}
+
+% ============================================================
+% References
+% ============================================================
+
+\bibliography{iclr2026_conference}
+\bibliographystyle{iclr2026_conference}
+
+% ============================================================
+% Appendix
+% ============================================================
+
+\appendix
+
+\input{sections/appendix}
+
+\end{document}

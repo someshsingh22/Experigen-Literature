@@ -1,0 +1,1220 @@
+% ============================================================================
+% related_works.bib
+% References for the "Related Works" section (Directions I–VII) of the
+% systematic literature review "Failure-Aware Companion Models for LLM Agent
+% Reliability". Every arXiv ID was verified against its arxiv.org/abs/ page;
+% every web.dev URL was confirmed to resolve.
+%
+% Entries include both `eprint`/`archivePrefix` (for biblatex) and a `note`
+% holding the arXiv ID (for classic BibTeX styles such as plain/unsrt), so the
+% file works regardless of the bibliography backend.
+% ============================================================================
+
+% ---------------------------------------------------------------------------
+% Direction I — Agent failure taxonomies & diagnostic benchmarks
+% ---------------------------------------------------------------------------
+@misc{websuite,
+  author       = {Li, Eric and Waldo, Jim},
+  title        = {{WebSuite}: Systematically Evaluating Why Web Agents Fail},
+  year         = {2024},
+  eprint       = {2406.01623},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2406.01623}
+}
+
+@misc{mast,
+  author       = {Cemri, Mert and Pan, Melissa Z. and Yang, Shuyi and Agrawal, Lakshya A. and Chopra, Bhavya and others},
+  title        = {Why Do Multi-Agent {LLM} Systems Fail?},
+  year         = {2025},
+  eprint       = {2503.13657},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2503.13657}
+}
+
+@misc{agenterror,
+  author       = {Zhu, Kunlun and Liu, Zijia and Li, Bingxuan and Tian, Muxin and Yang, Yingxuan and others},
+  title        = {Where {LLM} Agents Fail and How They Can Learn From Failures},
+  year         = {2025},
+  eprint       = {2509.25370},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2509.25370; AgentErrorTaxonomy / AgentErrorBench / AgentDebug}
+}
+
+@misc{aegisenv,
+  author       = {Song, Kevin and Jayarajan, Anand and Ding, Yaoyao and Su, Qidong and Zhu, Zhanda and Liu, Sihang and Pekhimenko, Gennady},
+  title        = {{Aegis}: Taxonomy and Optimizations for Overcoming Agent-Environment Failures in {LLM} Agents},
+  year         = {2025},
+  eprint       = {2508.19504},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2508.19504}
+}
+
+@misc{pipeline,
+  author       = {R{\"o}der, Daniel and Juneja, Akhil and Roller, Roland and Schmeier, Sven},
+  title        = {Detecting Pipeline Failures through Fine-Grained Analysis of Web Agents},
+  year         = {2025},
+  eprint       = {2509.14382},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2509.14382}
+}
+
+@misc{guisurvey,
+  author       = {Shi, Yucheng and Yu, Wenhao and Huang, Jingyuan and Yao, Wenlin and Chen, Wenhu and Liu, Ninghao},
+  title        = {Towards Trustworthy {GUI} Agents: A Survey},
+  year         = {2025},
+  eprint       = {2503.23434},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2503.23434}
+}
+
+@misc{howfail,
+  author       = {Roig, J. V.},
+  title        = {How Do {LLMs} Fail In Agentic Scenarios? A Qualitative Analysis of Success and Failure Scenarios of Various {LLMs} in Agentic Simulations},
+  year         = {2025},
+  eprint       = {2512.07497},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2512.07497}
+}
+
+% ---------------------------------------------------------------------------
+% Direction II — Failure attribution & root-cause localization
+% ---------------------------------------------------------------------------
+@inproceedings{whowhen,
+  author       = {Zhang, Shaokun and Yin, Ming and Zhang, Jieyu and Liu, Jiale and Han, Zhiguang and others},
+  title        = {Which Agent Causes Task Failures and When? On Automated Failure Attribution of {LLM} Multi-Agent Systems},
+  booktitle    = {Proceedings of the 42nd International Conference on Machine Learning (ICML)},
+  year         = {2025},
+  note         = {Spotlight; Who\&When benchmark; arXiv:2505.00212},
+  eprint       = {2505.00212},
+  archivePrefix= {arXiv}
+}
+
+@misc{agentracer,
+  author       = {Zhang, Guibin and Wang, Junhao and Chen, Junjie and Zhou, Wangchunshu and Wang, Kun and Yan, Shuicheng},
+  title        = {{AgenTracer}: Who Is Inducing Failure in the {LLM} Agentic Systems?},
+  year         = {2025},
+  eprint       = {2509.03312},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2509.03312}
+}
+
+@misc{agentrx,
+  author       = {Barke, Shraddha and Goyal, Arnav and Khare, Alind and Singh, Avaljot and Nath, Suman and Bansal, Chetan},
+  title        = {{AgentRx}: Diagnosing {AI} Agent Failures from Execution Trajectories},
+  year         = {2026},
+  eprint       = {2602.02475},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2602.02475}
+}
+
+@misc{chief,
+  author       = {Wang, Yawen and Wu, Wenjie and Wang, Junjie and Wang, Qing},
+  title        = {From Flat Logs to Causal Graphs: Hierarchical Failure Attribution for {LLM}-based Multi-Agent Systems},
+  year         = {2026},
+  eprint       = {2602.23701},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2602.23701; CHIEF}
+}
+
+@misc{causalinf,
+  author       = {Ma, Guoqing and Zhu, Jia and Guo, Hanghui and Shi, Weijie and others},
+  title        = {Automatic Failure Attribution and Critical Step Prediction Method for Multi-Agent Systems Based on Causal Inference},
+  year         = {2025},
+  eprint       = {2509.08682},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2509.08682}
+}
+
+@misc{aegisattr,
+  author       = {Kong, Fanqi and Zhang, Ruijie and Yin, Huaxiao and Zhang, Guibin and others},
+  title        = {{Aegis}: Automated Error Generation and Attribution for Multi-Agent Systems},
+  year         = {2025},
+  eprint       = {2509.14295},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2509.14295}
+}
+
+@misc{verifymas,
+  author       = {Qiao, Hezhe and Tong, Hanghang and Lim, Ee-Peng and Liu, Bing and Pang, Guansong},
+  title        = {{VerifyMAS}: Hypothesis Verification for Failure Attribution in {LLM} Multi-Agent Systems},
+  year         = {2026},
+  eprint       = {2605.17467},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2605.17467}
+}
+
+@inproceedings{agenttrace,
+  author       = {Wang, Zhaohui Geoffrey},
+  title        = {{AgentTrace}: Causal Graph Tracing for Root Cause Analysis in Deployed Multi-Agent Systems},
+  booktitle    = {ICLR 2026 Workshop on Agents in the Wild},
+  year         = {2026},
+  note         = {arXiv:2603.14688},
+  eprint       = {2603.14688},
+  archivePrefix= {arXiv}
+}
+
+@misc{mpbench,
+  author       = {In, Yeonjun and Tanjim, Mehrab and Subramanian, Jayakumar and Kim, Sungchul and others},
+  title        = {Rethinking Failure Attribution in Multi-Agent Systems: A Multi-Perspective Benchmark and Evaluation},
+  year         = {2026},
+  eprint       = {2603.25001},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2603.25001; MP-Bench}
+}
+
+@inproceedings{traceelephant,
+  author       = {Chen, Mengzhuo and Wang, Junjie and Mu, Fangwen and Wang, Yawen and others},
+  title        = {Seeing the Whole Elephant: A Benchmark for Failure Attribution in {LLM}-based Multi-Agent Systems},
+  booktitle    = {Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL)},
+  year         = {2026},
+  note         = {TraceElephant; arXiv:2604.22708},
+  eprint       = {2604.22708},
+  archivePrefix= {arXiv}
+}
+
+% ---------------------------------------------------------------------------
+% Direction III — Verifier, critic, self-correction
+% ---------------------------------------------------------------------------
+@inproceedings{critic,
+  author       = {Gou, Zhibin and Shao, Zhihong and Gong, Yeyun and Shen, Yelong and Yang, Yujiu and Duan, Nan and Chen, Weizhu},
+  title        = {{CRITIC}: Large Language Models Can Self-Correct with Tool-Interactive Critiquing},
+  booktitle    = {International Conference on Learning Representations (ICLR)},
+  year         = {2024},
+  note         = {arXiv:2305.11738},
+  eprint       = {2305.11738},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{verifiagent,
+  author       = {Han, Jiuzhou and Buntine, Wray and Shareghi, Ehsan},
+  title        = {{VerifiAgent}: A Unified Verification Agent in Language Model Reasoning},
+  booktitle    = {Findings of the Association for Computational Linguistics: EMNLP},
+  year         = {2025},
+  note         = {arXiv:2504.00406},
+  eprint       = {2504.00406},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{reflexion,
+  author       = {Shinn, Noah and Cassano, Federico and Berman, Edward and Gopinath, Ashwin and Narasimhan, Karthik and Yao, Shunyu},
+  title        = {{Reflexion}: Language Agents with Verbal Reinforcement Learning},
+  booktitle    = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year         = {2023},
+  note         = {arXiv:2303.11366},
+  eprint       = {2303.11366},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{selfrefine,
+  author       = {Madaan, Aman and Tandon, Niket and Gupta, Prakhar and Hallinan, Skyler and Gao, Luyu and others},
+  title        = {{Self-Refine}: Iterative Refinement with Self-Feedback},
+  booktitle    = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year         = {2023},
+  note         = {arXiv:2303.17651},
+  eprint       = {2303.17651},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{cannotselfcorrect,
+  author       = {Huang, Jie and Chen, Xinyun and Mishra, Swaroop and Zheng, Huaixiu Steven and Yu, Adams Wei and Song, Xinying and Zhou, Denny},
+  title        = {Large Language Models Cannot Self-Correct Reasoning Yet},
+  booktitle    = {International Conference on Learning Representations (ICLR)},
+  year         = {2024},
+  note         = {arXiv:2310.01798},
+  eprint       = {2310.01798},
+  archivePrefix= {arXiv}
+}
+
+@misc{shepherd,
+  author       = {Wang, Tianlu and Yu, Ping and Tan, Xiaoqing Ellen and O'Brien, Sean and Pasunuru, Ramakanth and others},
+  title        = {{Shepherd}: A Critic for Language Model Generation},
+  year         = {2023},
+  eprint       = {2308.04592},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2308.04592}
+}
+
+@inproceedings{judge,
+  author       = {Zheng, Lianmin and Chiang, Wei-Lin and Sheng, Ying and Zhuang, Siyuan and Wu, Zhanghao and others},
+  title        = {Judging {LLM}-as-a-Judge with {MT-Bench} and {Chatbot Arena}},
+  booktitle    = {Advances in Neural Information Processing Systems (NeurIPS), Datasets and Benchmarks Track},
+  year         = {2023},
+  note         = {arXiv:2306.05685},
+  eprint       = {2306.05685},
+  archivePrefix= {arXiv}
+}
+
+@article{selfcorrectsurvey,
+  author       = {Pan, Liangming and Saxon, Michael and Xu, Wenda and Nathani, Deepak and Wang, Xinyi and Wang, William Yang},
+  title        = {Automatically Correcting Large Language Models: Surveying the Landscape of Diverse Self-Correction Strategies},
+  journal      = {Transactions of the Association for Computational Linguistics (TACL)},
+  year         = {2024},
+  note         = {arXiv:2308.03188},
+  eprint       = {2308.03188},
+  archivePrefix= {arXiv}
+}
+
+@misc{gsm8k,
+  author       = {Cobbe, Karl and Kosaraju, Vineet and Bavarian, Mohammad and Chen, Mark and Jun, Heewoo and others},
+  title        = {Training Verifiers to Solve Math Word Problems},
+  year         = {2021},
+  eprint       = {2110.14168},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  note         = {arXiv:2110.14168; GSM8K}
+}
+
+@inproceedings{verifystep,
+  author       = {Lightman, Hunter and Kosaraju, Vineet and Burda, Yura and Edwards, Harri and Baker, Bowen and others},
+  title        = {Let's Verify Step by Step},
+  booktitle    = {International Conference on Learning Representations (ICLR)},
+  year         = {2024},
+  note         = {PRM800K; arXiv:2305.20050},
+  eprint       = {2305.20050},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{ctrl,
+  author       = {Xie, Zhihui and Chen, Jie and Chen, Liyu and Mao, Weichao and Xu, Jingjing and Kong, Lingpeng},
+  title        = {Teaching Language Models to Critique via Reinforcement Learning},
+  booktitle    = {Proceedings of the 42nd International Conference on Machine Learning (ICML)},
+  year         = {2025},
+  note         = {CTRL; arXiv:2502.03492},
+  eprint       = {2502.03492},
+  archivePrefix= {arXiv}
+}
+
+@misc{score,
+  author       = {Kumar, Aviral and others},
+  title        = {Training Language Models to Self-Correct via Reinforcement Learning},
+  year         = {2024},
+  eprint       = {2409.12917},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  note         = {arXiv:2409.12917; SCoRe}
+}
+
+% ---------------------------------------------------------------------------
+% Direction IV — Process reward models & step-level value
+% ---------------------------------------------------------------------------
+@inproceedings{mathshepherd,
+  author       = {Wang, Peiyi and Li, Lei and Shao, Zhihong and Xu, R. X. and Dai, Damai and Li, Yifei and others},
+  title        = {{Math-Shepherd}: Verify and Reinforce {LLMs} Step-by-step without Human Annotations},
+  booktitle    = {Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (ACL)},
+  year         = {2024},
+  note         = {arXiv:2312.08935},
+  eprint       = {2312.08935},
+  archivePrefix= {arXiv}
+}
+
+@misc{omegaprm,
+  author       = {Luo, Liangchen and Liu, Yinxiao and Liu, Rosanne and Phatale, Samrat and Guo, Meiqi and others},
+  title        = {Improve Mathematical Reasoning in Language Models by Automated Process Supervision},
+  year         = {2024},
+  eprint       = {2406.06592},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  note         = {arXiv:2406.06592; OmegaPRM}
+}
+
+@inproceedings{processbench,
+  author       = {Zheng, Chujie and Zhang, Zhenru and Zhang, Beichen and Lin, Runji and Lu, Keming and Yu, Bowen and Liu, Dayiheng and Zhou, Jingren and Lin, Junyang},
+  title        = {{ProcessBench}: Identifying Process Errors in Mathematical Reasoning},
+  booktitle    = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL)},
+  year         = {2025},
+  note         = {arXiv:2412.06559},
+  eprint       = {2412.06559},
+  archivePrefix= {arXiv}
+}
+
+@misc{thinkprm,
+  author       = {Khalifa, Muhammad and Agarwal, Rishabh and Logeswaran, Lajanugen and Kim, Jaekyeom and Peng, Hao and Lee, Moontae and Lee, Honglak and Wang, Lu},
+  title        = {Process Reward Models That Think},
+  year         = {2025},
+  eprint       = {2504.16828},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  note         = {arXiv:2504.16828; ThinkPRM}
+}
+
+@misc{prmsurvey,
+  author       = {Zheng, Congmin and Zhu, Jiachen and Ou, Zhuoying and Chen, Yuxiang and Zhang, Kangning and others},
+  title        = {A Survey of Process Reward Models: From Outcome Signals to Process Supervisions for Large Language Models},
+  year         = {2025},
+  eprint       = {2510.08049},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  note         = {arXiv:2510.08049}
+}
+
+@misc{still1,
+  author       = {Jiang, Jinhao and Chen, Zhipeng and Min, Yingqian and Chen, Jie and Cheng, Xiaoxue and others},
+  title        = {Enhancing {LLM} Reasoning with Reward-guided Tree Search},
+  year         = {2024},
+  eprint       = {2411.11694},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2411.11694; STILL-1}
+}
+
+@inproceedings{qvalue,
+  author       = {Zhai, Yuanzhao and Yang, Tingkai and Xu, Kele and Dawei, Feng and Yang, Cheng and Ding, Bo and Wang, Huaimin},
+  title        = {Enhancing Decision-Making for {LLM} Agents via Step-Level {Q}-Value Models},
+  booktitle    = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  year         = {2025},
+  note         = {arXiv:2409.09345},
+  eprint       = {2409.09345},
+  archivePrefix= {arXiv}
+}
+
+@misc{agentprm1,
+  author       = {Choudhury, Sanjiban},
+  title        = {Process Reward Models for {LLM} Agents: Practical Framework and Directions},
+  year         = {2025},
+  eprint       = {2502.10325},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  note         = {arXiv:2502.10325; AgentPRM / InversePRM}
+}
+
+@inproceedings{agentprm2,
+  author       = {Xi, Zhiheng and Liao, Chenyang and Li, Guanyu and Yang, Yajie and Chen, Wenxiang and others},
+  title        = {{AgentPRM}: Process Reward Models for {LLM} Agents via Step-Wise Promise and Progress},
+  booktitle    = {Proceedings of the ACM Web Conference (WWW)},
+  year         = {2026},
+  note         = {arXiv:2511.08325},
+  eprint       = {2511.08325},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{armap,
+  author       = {Chen, Zhenfang and Chen, Delin and Sun, Rui and Liu, Wenjun and Gan, Chuang},
+  title        = {Scaling Autonomous Agents via Automatic Reward Modeling And Planning},
+  booktitle    = {International Conference on Learning Representations (ICLR)},
+  year         = {2025},
+  note         = {ARMAP; arXiv:2502.12130},
+  eprint       = {2502.12130},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{gigpo,
+  author       = {Feng, Lang and Xue, Zhenghai and Liu, Tingcong and An, Bo},
+  title        = {Group-in-Group Policy Optimization for {LLM} Agent Training},
+  booktitle    = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year         = {2025},
+  note         = {GiGPO; arXiv:2505.10978},
+  eprint       = {2505.10978},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{treegrpo,
+  author       = {Ji, Yuxiang and Ma, Ziyu and Wang, Yong and Chen, Guanhua and Chu, Xiangxiang and Wu, Liaoni},
+  title        = {Tree Search for {LLM} Agent Reinforcement Learning},
+  booktitle    = {International Conference on Learning Representations (ICLR)},
+  year         = {2026},
+  note         = {Tree-GRPO; arXiv:2509.21240},
+  eprint       = {2509.21240},
+  archivePrefix= {arXiv}
+}
+
+% ---------------------------------------------------------------------------
+% Direction V — Companion / guardian / sidecar
+% ---------------------------------------------------------------------------
+@misc{llamaguard,
+  author       = {Inan, Hakan and Upasani, Kartikeya and Chi, Jianfeng and Rungta, Rashi and Iyer, Krithika and others},
+  title        = {{Llama Guard}: {LLM}-based Input-Output Safeguard for Human-{AI} Conversations},
+  year         = {2023},
+  eprint       = {2312.06674},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2312.06674}
+}
+
+@inproceedings{nemo,
+  author       = {Rebedea, Traian and Dinu, Razvan and Sreedhar, Makesh and Parisien, Christopher and Cohen, Jonathan},
+  title        = {{NeMo Guardrails}: A Toolkit for Controllable and Safe {LLM} Applications with Programmable Rails},
+  booktitle    = {Proceedings of EMNLP 2023: System Demonstrations},
+  year         = {2023},
+  note         = {arXiv:2310.10501},
+  eprint       = {2310.10501},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{rjudge,
+  author       = {Yuan, Tongxin and He, Zhiwei and Dong, Lingzhong and Wang, Yiming and others},
+  title        = {{R-Judge}: Benchmarking Safety Risk Awareness for {LLM} Agents},
+  booktitle    = {Findings of the Association for Computational Linguistics: EMNLP},
+  year         = {2024},
+  note         = {arXiv:2401.10019},
+  eprint       = {2401.10019},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{toolemu,
+  author       = {Ruan, Yangjun and Dong, Honghua and Wang, Andrew and Pitis, Silviu and Zhou, Yongchao and Ba, Jimmy and Dubois, Yann and Maddison, Chris J. and Hashimoto, Tatsunori},
+  title        = {Identifying the Risks of {LM} Agents with an {LM}-Emulated Sandbox},
+  booktitle    = {International Conference on Learning Representations (ICLR)},
+  year         = {2024},
+  note         = {Spotlight; ToolEmu; arXiv:2309.15817},
+  eprint       = {2309.15817},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{guardagent,
+  author       = {Xiang, Zhen and Zheng, Linzhi and Li, Yanjie and Hong, Junyuan and Li, Qinbin and Xie, Han and Zhang, Jiawei and Xiong, Zidi and Xie, Chulin and Yang, Carl and Song, Dawn and Li, Bo},
+  title        = {{GuardAgent}: Safeguard {LLM} Agents by a Guard Agent via Knowledge-Enabled Reasoning},
+  booktitle    = {Proceedings of the 42nd International Conference on Machine Learning (ICML)},
+  year         = {2025},
+  note         = {arXiv:2406.09187},
+  eprint       = {2406.09187},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{agrail,
+  author       = {Luo, Weidi and Dai, Shenghong and Liu, Xiaogeng and Banerjee, Suman and Sun, Huan and Chen, Muhao and Xiao, Chaowei},
+  title        = {{AGrail}: A Lifelong Agent Guardrail with Effective and Adaptive Safety Detection},
+  booktitle    = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL)},
+  year         = {2025},
+  note         = {arXiv:2502.11448},
+  eprint       = {2502.11448},
+  archivePrefix= {arXiv}
+}
+
+@misc{guardreasoner,
+  author       = {Liu, Yue and Gao, Hongcheng and Zhai, Shengfang and He, Yufei and Xia, Jun and others},
+  title        = {{GuardReasoner}: Towards Reasoning-based {LLM} Safeguards},
+  year         = {2025},
+  eprint       = {2501.18492},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CR},
+  note         = {arXiv:2501.18492}
+}
+
+@misc{llamafirewall,
+  author       = {Chennabasappa, Sahana and Nikolaidis, Cyrus and Song, Daniel and Molnar, David and others},
+  title        = {{LlamaFirewall}: An Open Source Guardrail System for Building Secure {AI} Agents},
+  year         = {2025},
+  eprint       = {2505.03574},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CR},
+  note         = {arXiv:2505.03574}
+}
+
+@misc{agentmonitorwild,
+  author       = {Naihin, Silen and Atkinson, David and Green, Marc and others},
+  title        = {Testing Language Model Agents Safely in the Wild},
+  year         = {2023},
+  eprint       = {2311.10538},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2311.10538; AgentMonitor}
+}
+
+@misc{veriguard,
+  author       = {Miculicich, Lesly and Parmar, Mihir and Palangi, Hamid and Dvijotham, Krishnamurthy Dj and Montanari, Mirko and Pfister, Tomas and Le, Long T. and others},
+  title        = {{VeriGuard}: Enhancing {LLM} Agent Safety via Verified Code Generation},
+  year         = {2025},
+  eprint       = {2510.05156},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2510.05156}
+}
+
+@inproceedings{inferact,
+  author       = {Fang, Haishuo and Zhu, Xiaodan and Gurevych, Iryna},
+  title        = {Preemptive Detection and Correction of Misaligned Actions in {LLM} Agents},
+  booktitle    = {Proceedings of EMNLP},
+  year         = {2025},
+  note         = {InferAct; arXiv:2407.11843},
+  eprint       = {2407.11843},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{proxytuning,
+  author       = {Liu, Alisa and Han, Xiaochuang and Wang, Yizhong and Tsvetkov, Yulia and Choi, Yejin and Smith, Noah A.},
+  title        = {Tuning Language Models by Proxy},
+  booktitle    = {Conference on Language Modeling (COLM)},
+  year         = {2024},
+  note         = {Proxy-Tuning; arXiv:2401.08565},
+  eprint       = {2401.08565},
+  archivePrefix= {arXiv}
+}
+
+@misc{agentmonitorpnp,
+  author       = {Chi and others},
+  title        = {{AgentMonitor}: A Plug-and-Play Framework for Predictive and Secure Multi-Agent Systems},
+  year         = {2024},
+  eprint       = {2408.14972},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.MA},
+  note         = {arXiv:2408.14972}
+}
+
+% ---------------------------------------------------------------------------
+% Direction VI — Trace learning & recovery
+% ---------------------------------------------------------------------------
+@inproceedings{expel,
+  author       = {Zhao, Andrew and Huang, Daniel and Xu, Quentin and Lin, Matthieu and Liu, Yong-Jin and Huang, Gao},
+  title        = {{ExpeL}: {LLM} Agents Are Experiential Learners},
+  booktitle    = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  year         = {2024},
+  note         = {arXiv:2308.10144},
+  eprint       = {2308.10144},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{agile,
+  author       = {Feng, Peiyuan and He, Yichen and Huang, Guanhua and Lin, Yuan and Zhang, Hanchong and Zhang, Yuchen and Li, Hang},
+  title        = {{AGILE}: A Novel Reinforcement Learning Framework of {LLM} Agents},
+  booktitle    = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year         = {2024},
+  note         = {arXiv:2405.14751},
+  eprint       = {2405.14751},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{autoguide,
+  author       = {Fu, Yao and Kim, Dong-Ki and Kim, Jaekyeom and Sohn, Sungryull and Logeswaran, Lajanugen and Bae, Kyunghoon and Lee, Honglak},
+  title        = {{AutoGuide}: Automated Generation and Selection of Context-Aware Guidelines for Large Language Model Agents},
+  booktitle    = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year         = {2024},
+  note         = {arXiv:2403.08978},
+  eprint       = {2403.08978},
+  archivePrefix= {arXiv}
+}
+
+@misc{awm,
+  author       = {Wang, Zora Zhiruo and Mao, Jiayuan and Fried, Daniel and Neubig, Graham},
+  title        = {Agent Workflow Memory},
+  year         = {2024},
+  eprint       = {2409.07429},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2409.07429}
+}
+
+@misc{a3t,
+  author       = {Yang, Zonghan and Li, Peng and Yan, Ming and Zhang, Ji and Huang, Fei and Liu, Yang},
+  title        = {{ReAct} Meets {ActRe}: When Language Agents Enjoy Training Data Autonomy},
+  year         = {2024},
+  eprint       = {2403.14589},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2403.14589; A$^3$T}
+}
+
+@misc{step,
+  author       = {Chen, Yihan and Xu, Benfeng and Wang, Xiaorui and Zhang, Yongdong and Mao, Zhendong},
+  title        = {Training {LLM}-Based Agents with Synthetic Self-Reflected Trajectories and Partial Masking},
+  year         = {2025},
+  eprint       = {2505.20023},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2505.20023; STeP}
+}
+
+@misc{agentr,
+  author       = {Yuan, Siyu and Chen, Zehui and Xi, Zhiheng and Ye, Junjie and Du, Zhengyin and Chen, Jiecao},
+  title        = {{Agent-R}: Training Language Model Agents to Reflect via Iterative Self-Training},
+  year         = {2025},
+  eprint       = {2501.11425},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2501.11425}
+}
+
+@misc{treesearch,
+  author       = {Koh, Jing Yu and McAleer, Stephen and Fried, Daniel and Salakhutdinov, Ruslan},
+  title        = {Tree Search for Language Model Agents},
+  year         = {2024},
+  eprint       = {2407.01476},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2407.01476}
+}
+
+@misc{backtrack,
+  author       = {Wu, Qinzhuo and Gao, Pengzhi and Liu, Wei and Luan, Jian},
+  title        = {{BacktrackAgent}: Enhancing {GUI} Agent with Error Detection and Backtracking Mechanism},
+  year         = {2025},
+  eprint       = {2505.20660},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2505.20660}
+}
+
+@misc{guireflection,
+  author       = {Wu, Penghao and Ma, Shengnan and Wang, Bo and Yu, Jiaheng and Lu, Lewei and Liu, Ziwei},
+  title        = {{GUI-Reflection}: Empowering Multimodal {GUI} Models with Self-Reflection Behavior},
+  year         = {2025},
+  eprint       = {2506.08012},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CV},
+  note         = {arXiv:2506.08012}
+}
+
+@misc{paladin,
+  author       = {Vuddanti, Sri Vatsa and Shah, Aarav and Chittiprolu, Satwik Kumar and Song, Tony and Dev, Sunishchal and Zhu, Kevin and Chaudhary, Maheep},
+  title        = {{PALADIN}: Self-Correcting Language Model Agents to Cure Tool-Failure Cases},
+  year         = {2025},
+  eprint       = {2509.25238},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2509.25238}
+}
+
+@inproceedings{multistage,
+  author       = {Farag, Youmna and Stoyanchev, Svetlana and Li, Mohan and Keizer, Simon and Doddipatla, Rama},
+  title        = {Conditional Multi-Stage Failure Recovery for Embodied Agents},
+  booktitle    = {Proceedings of the REALM Workshop at ACL},
+  year         = {2025},
+  note         = {arXiv:2507.06016},
+  eprint       = {2507.06016},
+  archivePrefix= {arXiv}
+}
+
+% ---------------------------------------------------------------------------
+% Direction VII — Domain wedge: CWV / SE / RCA
+% ---------------------------------------------------------------------------
+@misc{lcp,
+  author       = {Walton, Philip and Pollard, Barry},
+  title        = {Largest Contentful Paint ({LCP})},
+  howpublished = {web.dev (Google), \url{https://web.dev/articles/lcp}},
+  year         = {2025},
+  note         = {Accessed 2026; \url{https://web.dev/articles/lcp}}
+}
+
+@misc{thresholds,
+  author       = {McQuade, Bryan and Pollard, Barry},
+  title        = {How the Core Web Vitals Metrics Thresholds Were Defined},
+  howpublished = {web.dev (Google), \url{https://web.dev/articles/defining-core-web-vitals-thresholds}},
+  year         = {2020},
+  note         = {Updated 2025; \url{https://web.dev/articles/defining-core-web-vitals-thresholds}}
+}
+
+@misc{inp,
+  author       = {Wagner, Jeremy and Pollard, Barry and Mocny, Michal},
+  title        = {Interaction to Next Paint ({INP})},
+  howpublished = {web.dev (Google), \url{https://web.dev/articles/inp}},
+  year         = {2024},
+  note         = {INP became a stable Core Web Vital on 12 March 2024; \url{https://web.dev/blog/inp-cwv-march-12}}
+}
+
+@misc{topcwv,
+  author       = {{Google Chrome Team}},
+  title        = {The Most Effective Ways to Improve Core Web Vitals},
+  howpublished = {web.dev (Google), \url{https://web.dev/articles/top-cwv}},
+  year         = {2024},
+  note         = {\url{https://web.dev/articles/top-cwv}}
+}
+
+@inproceedings{domllm,
+  author       = {Peters, Gideon and Khatoonabadi, SayedHassan and Shihab, Emad},
+  title        = {Evaluating the Use of {LLMs} for Automated {DOM}-Level Resolution of Web Performance Issues},
+  booktitle    = {Proceedings of the 23rd International Conference on Mining Software Repositories (MSR)},
+  year         = {2026},
+  note         = {arXiv:2601.05502},
+  eprint       = {2601.05502},
+  archivePrefix= {arXiv}
+}
+
+@misc{frontendbench,
+  author       = {Zhu, Hongda and Zhang, Yiwen and Zhao, Bing and Ding, Jingzhe and Liu, Siyao and Liu, Tong and Wang, Dandan and Liu, Yanan and Li, Zhaojian},
+  title        = {{FrontendBench}: A Benchmark for Evaluating {LLMs} on Front-End Development via Automatic Evaluation},
+  year         = {2025},
+  eprint       = {2506.13832},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2506.13832}
+}
+
+@misc{mrah,
+  author       = {Chen, Kaitao},
+  title        = {Improving Front-end Performance through Modular Rendering and Adaptive Hydration ({MRAH}) in {React} Applications},
+  year         = {2025},
+  eprint       = {2504.03884},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2504.03884}
+}
+
+@article{mlweb,
+  author       = {Yuan, Lu and Ren, Jie and Gao, Ling and Tang, Zhanyong and Wang, Zheng},
+  title        = {Using Machine Learning to Optimize Web Interactions on Heterogeneous Mobile Multi-cores},
+  journal      = {IEEE Access},
+  year         = {2019},
+  note         = {arXiv:1906.08689},
+  eprint       = {1906.08689},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{swebench,
+  author       = {Jimenez, Carlos E. and Yang, John and Wettig, Alexander and Yao, Shunyu and Pei, Kexin and Press, Ofir and Narasimhan, Karthik},
+  title        = {{SWE-bench}: Can Language Models Resolve Real-World {GitHub} Issues?},
+  booktitle    = {International Conference on Learning Representations (ICLR)},
+  year         = {2024},
+  note         = {arXiv:2310.06770},
+  eprint       = {2310.06770},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{sweagent,
+  author       = {Yang, John and Jimenez, Carlos E. and Wettig, Alexander and Lieret, Kilian and Yao, Shunyu and Narasimhan, Karthik and Press, Ofir},
+  title        = {{SWE-agent}: Agent-Computer Interfaces Enable Automated Software Engineering},
+  booktitle    = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year         = {2024},
+  note         = {arXiv:2405.15793},
+  eprint       = {2405.15793},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{autocoderover,
+  author       = {Zhang, Yuntong and Ruan, Haifeng and Fan, Zhiyu and Roychoudhury, Abhik},
+  title        = {{AutoCodeRover}: Autonomous Program Improvement},
+  booktitle    = {Proceedings of the 33rd ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA)},
+  year         = {2024},
+  doi          = {10.1145/3650212.3680384},
+  note         = {arXiv:2404.05427},
+  eprint       = {2404.05427},
+  archivePrefix= {arXiv}
+}
+
+@misc{aprsurvey,
+  author       = {Yang, Boyang and Cai, Zijian and Liu, Fengling and Le, Bach and Zhang, Lingming and Bissyand{\'e}, Tegawend{\'e} F. and Liu, Yang and Tian, Haoye},
+  title        = {A Survey of {LLM}-based Automated Program Repair: Taxonomies, Design Paradigms, and Applications},
+  year         = {2025},
+  eprint       = {2506.23749},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2506.23749}
+}
+
+@inproceedings{rcaagents,
+  author       = {Roy, Devjeet and Zhang, Xuchao and Bhave, Rashi and Bansal, Chetan and Las-Casas, Pedro and Fonseca, Rodrigo and Rajmohan, Saravan},
+  title        = {Exploring {LLM}-based Agents for Root Cause Analysis},
+  booktitle    = {Companion Proceedings of the 32nd ACM Symposium on the Foundations of Software Engineering (FSE), Industry Track},
+  year         = {2024},
+  note         = {arXiv:2403.04123},
+  eprint       = {2403.04123},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{rcagent,
+  author       = {Wang, Zefan and Liu, Zichuan and Zhang, Yingying and Zhong, Aoxiao and Wang, Jihong and Yin, Fengbin and Fan, Lunting and Wu, Lingfei and Wen, Qingsong},
+  title        = {{RCAgent}: Cloud Root Cause Analysis by Autonomous Agents with Tool-Augmented Large Language Models},
+  booktitle    = {Proceedings of the 33rd ACM International Conference on Information and Knowledge Management (CIKM)},
+  year         = {2024},
+  note         = {arXiv:2310.16340},
+  eprint       = {2310.16340},
+  archivePrefix= {arXiv}
+}
+
+@inproceedings{rcacopilot,
+  author       = {Chen, Yinfang and Xie, Huaibing and Ma, Minghua and Kang, Yu and Gao, Xin and others},
+  title        = {Automatic Root Cause Analysis via Large Language Models for Cloud Incidents},
+  booktitle    = {Proceedings of the 19th European Conference on Computer Systems (EuroSys)},
+  year         = {2024},
+  doi          = {10.1145/3627703.3629553},
+  note         = {RCACopilot; arXiv:2305.15778},
+  eprint       = {2305.15778},
+  archivePrefix= {arXiv}
+}
+
+@misc{trail,
+  author       = {Deshpande, Darshan and others},
+  title        = {{TRAIL}: Trace Reasoning and Agentic Issue Localization},
+  year         = {2025},
+  eprint       = {2505.08638},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2505.08638}
+}
+
+@misc{agentrewardbench,
+  author       = {L\"{u}, Xing Han and others},
+  title        = {{AgentRewardBench}: Evaluating Automatic Evaluations of Web Agent Trajectories},
+  year         = {2025},
+  eprint       = {2504.08942},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2504.08942}
+}
+
+@misc{cgi,
+  author       = {Yang, Ruihan and others},
+  title        = {The Lighthouse of Language: Enhancing {LLM} Agents via Critique-Guided Improvement},
+  year         = {2025},
+  eprint       = {2503.16024},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2503.16024; CGI; NeurIPS 2025}
+}
+
+@misc{acccollab,
+  author       = {Estornell, Andrew and others},
+  title        = {{ACC-Collab}: An Actor-Critic Approach to Multi-Agent {LLM} Collaboration},
+  year         = {2024},
+  eprint       = {2411.00053},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  note         = {arXiv:2411.00053; ICLR 2025}
+}
+
+@misc{steca,
+  author       = {Wang, Hanlin and others},
+  title        = {{STeCa}: Step-level Trajectory Calibration for {LLM} Agent Learning},
+  year         = {2025},
+  eprint       = {2502.14276},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2502.14276; ACL 2025 Findings}
+}
+
+@inproceedings{proggraph,
+  author       = {Allamanis, Miltiadis and Brockschmidt, Marc and Khademi, Mahmoud},
+  title        = {Learning to Represent Programs with Graphs},
+  booktitle    = {International Conference on Learning Representations (ICLR)},
+  year         = {2018},
+  eprint       = {1711.00740},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  note         = {arXiv:1711.00740; ICLR 2018}
+}
+
+@misc{repograph,
+  author       = {Ouyang, Siru and others},
+  title        = {{RepoGraph}: Enhancing {AI} Software Engineering with Repository-level Code Graph},
+  year         = {2024},
+  eprint       = {2410.14684},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2410.14684; ICLR 2025}
+}
+
+@misc{codexgraph,
+  author       = {Liu, Xiangyan and others},
+  title        = {{CodexGraph}: Bridging Large Language Models and Code Repositories via Code Graph Databases},
+  year         = {2024},
+  eprint       = {2408.03910},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2408.03910; NAACL 2025}
+}
+
+@misc{locagent,
+  author       = {Chen, Zhaoling and others},
+  title        = {{LocAgent}: Graph-Guided {LLM} Agents for Code Localization},
+  year         = {2025},
+  eprint       = {2503.09089},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2503.09089; ACL 2025}
+}
+
+@misc{cosil,
+  author       = {Jiang, Zhonghao and others},
+  title        = {{CoSIL}: Issue Localization via {LLM}-Driven Code Graph Searching},
+  year         = {2025},
+  eprint       = {2503.22424},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2503.22424}
+}
+
+@misc{cgm,
+  author       = {{CodeFuse-CGM Team}},
+  title        = {Code Graph Model ({CGM}): A Graph-Integrated Large Language Model for Repository-Level Software Engineering Tasks},
+  year         = {2025},
+  eprint       = {2505.16901},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2505.16901; NeurIPS 2025}
+}
+
+@misc{grepo,
+  author       = {{GREPO Authors}},
+  title        = {{GREPO}: A Benchmark for Graph Neural Networks on Repository-Level Bug Localization},
+  year         = {2026},
+  eprint       = {2602.13921},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2602.13921}
+}
+
+@misc{graphlocator,
+  author       = {{GraphLocator Authors}},
+  title        = {{GraphLocator}: Graph-guided Causal Reasoning for Issue Localization},
+  year         = {2026},
+  eprint       = {2512.22469},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2512.22469}
+}
+
+@misc{codebasememory,
+  author       = {{DeusData}},
+  title        = {Codebase-Memory: Tree-Sitter-Based Knowledge Graphs for {LLM} Code Exploration via {MCP}},
+  year         = {2026},
+  eprint       = {2603.27277},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2603.27277; open-source: github.com/DeusData/codebase-memory-mcp}
+}
+
+@misc{abcoder,
+  author       = {{CloudWeGo Team}},
+  title        = {{ABCoder}: {TypeScript} Repository Indexing for Code Agent Retrieval},
+  year         = {2026},
+  eprint       = {2604.18413},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2604.18413; open-source: github.com/cloudwego/abcoder}
+}
+
+@misc{jscallgraphs,
+  author       = {Hassanshahi, Behnaz and others},
+  title        = {Static {JavaScript} Call Graphs: A Comparative Study},
+  year         = {2024},
+  eprint       = {2405.07206},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.PL},
+  note         = {arXiv:2405.07206}
+}
+
+@misc{jelly,
+  author       = {Møller, Anders and others},
+  title        = {Jelly: {JavaScript}/TypeScript Call Graph and Dependency Analysis},
+  year         = {2024},
+  howpublished = {\url{https://github.com/cs-au-dk/jelly}},
+  note         = {Open-source tool; flow-insensitive call-graph analysis for JS/TS}
+}
+
+@misc{ranger,
+  author       = {{RANGER Authors}},
+  title        = {{RANGER}: Repository-Level Agent for Graph-Enhanced Retrieval},
+  year         = {2025},
+  eprint       = {2509.25257},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2509.25257}
+}
+
+@article{codeplan,
+  author       = {Bairi, Ramakrishna and others},
+  title        = {{CodePlan}: Repository-level Coding using {LLMs} and Planning},
+  journal      = {Proceedings of the ACM on Software Engineering (FSE)},
+  year         = {2024},
+  eprint       = {2309.12499},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2309.12499; ACM FSE 2024}
+}
+
+@misc{searchformer,
+  author       = {Lehnert, Lucas and others},
+  title        = {Beyond A*: Better Planning with Transformers via Search Dynamics Bootstrapping},
+  year         = {2024},
+  eprint       = {2402.14083},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2402.14083; Searchformer}
+}
+
+@misc{codeplandistill,
+  author       = {{CodePLAN Authors}},
+  title        = {Enhancing Code Generation Performance of Smaller Models by Distilling the Reasoning Ability of {LLMs}},
+  year         = {2024},
+  eprint       = {2403.13271},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2403.13271; CodePLAN}
+}
+
+@misc{subgoaldistill,
+  author       = {{Sub-goal Distillation Authors}},
+  title        = {Sub-goal Distillation: A Method to Improve Small Language Agents},
+  year         = {2024},
+  eprint       = {2405.02749},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  note         = {arXiv:2405.02749}
+}
+
+@misc{swerank,
+  author       = {{SweRank Team}},
+  title        = {{SweRank}: Software Issue Localization with Code Ranking},
+  year         = {2025},
+  eprint       = {2505.07849},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2505.07849}
+}
+
+@misc{reponavigator,
+  author       = {{RepoNavigator Authors}},
+  title        = {One Tool Is Enough: Reinforcement Learning of {LLM} Agents for Repository-Level Code Navigation},
+  year         = {2026},
+  eprint       = {2512.20957},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2512.20957; RepoNavigator; ICML 2026}
+}
+
+% ---------------------------------------------------------------------------
+% Direction VIII — RL and distillation for SE/code agents and planners
+% ---------------------------------------------------------------------------
+
+@misc{swerl,
+  author       = {Wei, Yuxiang and others},
+  title        = {{SWE-RL}: Advancing {LLM} Reasoning via Reinforcement Learning on Open Software Evolution},
+  year         = {2025},
+  eprint       = {2502.18449},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2502.18449; Meta; Llama3-SWE-RL-70B 41\% SWE-bench Verified}
+}
+
+@misc{swetrainrl,
+  author       = {Pan, Alexander and others},
+  title        = {Training Long-Context, Multi-Turn Software Engineering Agents with Reinforcement Learning},
+  year         = {2025},
+  eprint       = {2508.03501},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2508.03501; RFT+DAPO; 20\%→39\% SWE-bench Verified}
+}
+
+@misc{swefuse,
+  author       = {{SWE-Fuse Authors}},
+  title        = {{SWE-Fuse}: Empowering Software Agents via Issue-free Trajectory Learning and Entropy-aware {RLVR} Training},
+  year         = {2026},
+  eprint       = {2603.07927},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2603.07927}
+}
+
+@misc{swetrace,
+  author       = {{SWE-TRACE Authors}},
+  title        = {{SWE-TRACE}: Optimizing Long-Horizon {SWE} Agents Through Rubric Process Reward Models and Heuristic Test-Time Scaling},
+  year         = {2026},
+  eprint       = {2604.14820},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2604.14820; Rubric PRM; 60K SFT corpus}
+}
+
+@misc{skyworkswe,
+  author       = {{Skywork Team}},
+  title        = {{Skywork-SWE}: Unveiling Data Scaling Laws for Software Engineering in {LLMs}},
+  year         = {2025},
+  eprint       = {2506.19290},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2506.19290; 38\% SWE-bench Verified; data scaling laws for SE}
+}
+
+@misc{eaglet,
+  author       = {{EAGLET Authors}},
+  title        = {A Goal Without a Plan Is Just a Wish: Efficient and Effective Global Planner Training for Long-Horizon Agent Tasks},
+  year         = {2025},
+  eprint       = {2510.05608},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2510.05608; EAGLET; plug-and-play global planner}
+}
+
+@misc{pilotrl,
+  author       = {{PilotRL Authors}},
+  title        = {{PilotRL}: Training Language Model Agents via Global Planning-Guided Progressive Reinforcement Learning},
+  year         = {2026},
+  eprint       = {2508.00344},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2508.00344; AdaPlan; joint planner+executor RL}
+}
+
+@misc{plannerr1,
+  author       = {{Planner-R1 Authors}},
+  title        = {{Planner-R1}: Reward Shaping Enables Efficient Agentic {RL} with Smaller {LLMs}},
+  year         = {2025},
+  eprint       = {2509.25779},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2509.25779; 8B model competitive with 32B under dense shaped rewards}
+}
+
+@misc{rltr,
+  author       = {Li, Zhiwei and Hu, Yong and Wang, Wenqing},
+  title        = {Encouraging Good Processes Without the Need for Good Answers: Reinforcement Learning for {LLM} Agent Planning},
+  year         = {2025},
+  eprint       = {2508.19598},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2508.19598; RLTR; tool-use completeness reward; decoupled planning RL}
+}
+
+@misc{taskdecoupled,
+  author       = {Li, Yunfan and Xu, Bingbing and Tian, Xueyun and Xu, Xiucheng and Shen, Huawei},
+  title        = {Beyond Entangled Planning: Task-Decoupled Planning for Long-Horizon Agents},
+  year         = {2026},
+  eprint       = {2601.07577},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2601.07577; TDP; DAG sub-goal decomposition; 82\% token reduction}
+}
+
+@misc{swerm,
+  author       = {{SWE-RM Authors}},
+  title        = {{SWE-RM}: Execution-Free Feedback for Software Engineering Agents},
+  year         = {2025},
+  eprint       = {2512.21919},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2512.21919; MoE 30B/3B active; execution-free reward model}
+}
+
+@misc{sweshepherd,
+  author       = {Dihan, Mahir Labib and Khan, Md Ashrafur Rahman},
+  title        = {{SWE-Shepherd}: Advancing {PRMs} for Reinforcing Code Agents},
+  year         = {2026},
+  eprint       = {2604.10493},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.SE},
+  note         = {arXiv:2604.10493; action-level PRM for SE trajectories}
+}
+
+@misc{webshepherd,
+  author       = {{Web-Shepherd Authors}},
+  title        = {{Web-Shepherd}: Advancing {PRMs} for Reinforcing Web Agents},
+  year         = {2025},
+  eprint       = {2505.15277},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2505.15277; checklist-based PRM; WebPRM Collection; WebRewardBench}
+}
+
+@misc{structdistill,
+  author       = {L\"{u}, Xing Han and Reddy, Siva},
+  title        = {Structured Distillation of Web Agent Capabilities Enables Generalization},
+  year         = {2026},
+  eprint       = {2604.07776},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2604.07776; AGENT-AS-ANNOTATORS; 9B surpasses Claude 3.5 Sonnet on WebArena; MILA}
+}
