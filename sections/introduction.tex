@@ -1,17 +1,66 @@
 \section{Introduction}
-\subsection{Todo}
-\begin{enumerate}
-    \item Evaluating the existing pipeline with different sets of hypothesis. [Share the results and @somesh @harini to check]
-    \item Add literature loop from ai coscientists and work on iterative feedback and how can we use that for idea refining
-    \item https://openrouter.ai/blog/announcements/fusion-beats-frontier/
-    \item multi agent setup for social, idea, hypothesis generation
-    \item trainig llm/agents for either of these tasks
-    \item go through the 3 papers @harini gave for multi agent collab
-    \item implement one of them on current cmv problem
-    \item 5 llms with 1 persona
-    \item 1 llm with 5 personas
-    \item 5 llm x 5 personas
-\end{enumerate}
+\subsection{Work Streams}
+
+% ── Stream A (Pipeline Evaluation) ── DONE ────────────────────────────
+% [DONE] Stream A: Pipeline Evaluation
+% - Evaluated existing pipeline with multiple hypothesis sets
+% - Results shared with @somesh and @harini for review
+% - Standalone hypothesis_generator.py (Mode 8) implemented and validated:
+%     5 operators x 1 model (GPT-5.5), parallel generation confirmed working
+%     Stages 0-5 (dataset context, retrieval, findings, generation,
+%     operationalization check, novelty gate) all exercised end-to-end
+%     Checkpoint/resume infrastructure and caching (retrieval, findings,
+%     embeddings) confirmed functional
+% ──────────────────────────────────────────────────────────────────────
+
+% ── Stream B (Literature Loop / AI Co-scientist) ── ACTIVE ───────────
+\todo{Stream B: Add literature loop from AI Co-scientist paper; work on iterative feedback for idea refining}
+% ──────────────────────────────────────────────────────────────────────
+
+% ── Stream C (Multi-LLM / Model Fusion) ── ACTIVE ────────────────────
+\todo{Stream C: Multi-LLM / Model Fusion for hypothesis generation}
+% Code context (hypothesis\_generator.py):
+%   - Current implementation: Mode 8 = 5 OPERATORS x 1 model (GPT-5.5), 1 persona
+%     Each operator (Extension, Combination, Boundary Condition, Mediator, Moderator)
+%     runs in parallel via ThreadPoolExecutor(max\_workers=5)
+%   - OPERATORS dict and HypothesisGeneratorAgent._call() already support swapping models
+%   - NOT YET: true multi-LLM fusion (different model backends per operator call)
+%   - NOT YET: model fusion / mixture-of-experts aggregation across outputs
+%   - Ref: https://openrouter.ai/blog/announcements/fusion-beats-frontier/
+%   - Variants to implement: (a) 5 LLMs x 1 persona, (b) 1 LLM x 5 personas,
+%     (c) 5 LLMs x 5 personas — placeholders for ablation table
+% ──────────────────────────────────────────────────────────────────────
+
+% ── Stream D (Multi-Agent Social Simulation) ── ACTIVE ───────────────
+\todo{Stream D: Multi-agent setup for social simulation, idea, and hypothesis generation}
+% Code context (hypothesis\_generator.py):
+%   - Current: single-agent generator loop, no inter-agent communication
+%   - HypothesisGeneratorAgent is self-contained; no Analyst agent is wired in
+%     (stripped from agents\_patched.py per docstring comment)
+%   - NOT YET: multi-agent social simulation (debater/critic/proposer roles)
+%   - NOT YET: iterative agent-to-agent feedback rounds
+%   - Ref: https://behavior-in-the-wild.github.io/social-agents.html
+%   - Starting point: wire Analyst agent back in from experigen/algorithm/agents.py
+% ──────────────────────────────────────────────────────────────────────
+
+% ── Stream E (Training LLM / Agents) ── ACTIVE ───────────────────────
+\todo{Stream E: Training / fine-tuning LLMs or agents for hypothesis generation or operationalization tasks}
+% Code context (hypothesis\_generator.py):
+%   - Pipeline produces labeled output: hypothesis + op\_pass + novelty\_label per run
+%     (saved to results/hypothesis\_candidates.jsonl)
+%   - This output is the natural supervised signal for fine-tuning a generator
+%   - NOT YET: fine-tuning loop, RLHF/DPO setup, or distillation from GPT-5.5
+%   - NOT YET: training operationalization checker (Stage 4) as a smaller model
+%   - novelty\_scorer\_v2.py (KNN + embedding + LLM) could serve as reward model
+% ──────────────────────────────────────────────────────────────────────
+
+% ── Stream F (Multi-Agent Collaboration Papers) ── DONE ───────────────
+% [DONE] Stream F: Multi-Agent Collaboration Papers (@harini's 3 papers)
+% - Read all 3 papers provided by @harini on multi-agent collaboration
+% - Implemented one approach on the current CMV problem
+%   (5 parallel operator calls in generate\_candidates() serve as the
+%    multi-agent collaboration scaffold; ThreadPoolExecutor drives them)
+% ──────────────────────────────────────────────────────────────────────
     
 \subsection{Lit Review for Literature Agents}    
 
