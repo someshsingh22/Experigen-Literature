@@ -1,1 +1,181 @@
+% Requires in preamble: \usepackage{graphicx} (for \resizebox), \usepackage{float} (for [H] placement),
+% and \usepackage{booktabs} (for \toprule/\midrule/\bottomrule)
+% FIX for large vertical gap between back-to-back [H] tables: \raggedbottom stops LaTeX
+% from stretching interline glue to fill the page. Ideally this goes once in your real
+% preamble (before \begin{document}) rather than here, but it also takes effect placed
+% inline like this for any pages typeset after this point.
+\raggedbottom
 \section{Experiments}
+
+\begin{table}[H]
+\centering
+\caption{Performance comparison of various LLM baselines against our proposed method.}
+\label{tab:baselines-comparison}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Method} & \textbf{Memory Size} & \textbf{Min Pairwise Similarity} & \textbf{Construct Diversity} & \textbf{Feasibility} & \textbf{Analyst $p$-value} \\
+\midrule
+LLM Zero Shot & & & & & \\
+LLM Best of N & & & & & \\
+LLM Demographic Personas & & & & & \\
+LLM Aligned Demographic Personas & & & & & \\
+LLM Aligned Personas & & & & & \\
+Ours & & & & & \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Effect of Persona Conditions on Similarity and Novelty Metrics across varying $t$ (First Dataset).}
+\label{tab:persona_results_1}
+\small
+\begin{tabular}{clccc}
+\toprule
+$t$ & \textbf{Persona Condition} & \textbf{Avg Pairwise Sim} $\downarrow$ & \textbf{Avg Novelty Dist} $\uparrow$ & \textbf{Min Novelty Dist} $\uparrow$ \\
+\midrule
+0 
+& Demographic  & 0.66 $\pm$ 0.03 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 \\
+& Nuanced Demo & 0.66 $\pm$ 0.02 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 \\
+& No Persona   & 0.66 $\pm$ 0.02 & 1.00 $\pm$ 0.00 & 1.00 $\pm$ 0.00 \\
+& Summary      & \textbf{0.64 $\pm$ 0.04} & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} \\
+\midrule
+10 
+& Demographic  & \textbf{0.63 $\pm$ 0.01} & 0.33 $\pm$ 0.01 & 0.25 $\pm$ 0.02 \\
+& Nuanced Demo & 0.64 $\pm$ 0.02 & 0.33 $\pm$ 0.01 & \textbf{0.27 $\pm$ 0.02} \\
+& No Persona   & 0.63 $\pm$ 0.01 & 0.33 $\pm$ 0.01 & 0.26 $\pm$ 0.02 \\
+& Summary      & 0.63 $\pm$ 0.02 & \textbf{0.35 $\pm$ 0.02} & 0.26 $\pm$ 0.02 \\
+\midrule
+20 
+& Demographic  & 0.62 $\pm$ 0.01 & 0.32 $\pm$ 0.01 & 0.26 $\pm$ 0.02 \\
+& Nuanced Demo & 0.63 $\pm$ 0.01 & 0.32 $\pm$ 0.01 & 0.26 $\pm$ 0.02 \\
+& No Persona   & 0.63 $\pm$ 0.01 & 0.32 $\pm$ 0.01 & 0.26 $\pm$ 0.02 \\
+& Summary      & \textbf{0.61 $\pm$ 0.03} & \textbf{0.35 $\pm$ 0.01} & \textbf{0.27 $\pm$ 0.02} \\
+\midrule
+30 
+& Demographic  & 0.62 $\pm$ 0.01 & 0.31 $\pm$ 0.01 & 0.25 $\pm$ 0.02 \\
+& Nuanced Demo & 0.62 $\pm$ 0.01 & 0.31 $\pm$ 0.01 & 0.25 $\pm$ 0.02 \\
+& No Persona   & 0.62 $\pm$ 0.01 & 0.30 $\pm$ 0.01 & 0.24 $\pm$ 0.02 \\
+& Summary      & \textbf{0.61 $\pm$ 0.02} & \textbf{0.34 $\pm$ 0.02} & \textbf{0.28 $\pm$ 0.03} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Effect of Persona Conditions on Similarity, Novelty, and Construct Diversity Metrics across varying $t$ (Second Dataset), with a memory-only baseline (Mem) shown for reference where applicable.}
+\label{tab:persona_results_2}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{clccccc}
+\toprule
+$t$ & \textbf{Condition} & \textbf{Avg Pairwise} $\downarrow$ & \textbf{Avg Novelty} $\uparrow$ & \textbf{Min Novelty} $\uparrow$ & \textbf{CD-LLM} $\uparrow$ & \textbf{CD-LLM-Mem} $\uparrow$ \\
+\midrule
+0 
+& Demographic     & 0.804 $\pm$ 0.036 & \textbf{1.000 $\pm$ 0.000} & \textbf{1.000 $\pm$ 0.000} & 3.50 $\pm$ 1.20 & 3.50 $\pm$ 1.20 \\
+& No Persona      & 0.799 $\pm$ 0.049 & \textbf{1.000 $\pm$ 0.000} & \textbf{1.000 $\pm$ 0.000} & 2.70 $\pm$ 0.95 & 2.70 $\pm$ 0.95 \\
+& Nuanced Demo    & 0.787 $\pm$ 0.023 & \textbf{1.000 $\pm$ 0.000} & \textbf{1.000 $\pm$ 0.000} & 3.00 $\pm$ 0.71 & 3.00 $\pm$ 0.71 \\
+& Summary         & \textbf{0.699 $\pm$ 0.019} & \textbf{1.000 $\pm$ 0.000} & \textbf{1.000 $\pm$ 0.000} & \textbf{5.15 $\pm$ 1.24} & \textbf{5.15 $\pm$ 1.24} \\
+& Mem (Baseline)  & N/A & N/A & N/A & N/A & N/A \\
+\midrule
+10 
+& Demographic     & 0.682 $\pm$ 0.029 & 0.298 $\pm$ 0.014 & 0.241 $\pm$ 0.011 & 4.95 $\pm$ 0.86 & 5.05 $\pm$ 0.86 \\
+& No Persona      & \textbf{0.671 $\pm$ 0.023} & \textbf{0.311 $\pm$ 0.016} & \textbf{0.247 $\pm$ 0.013} & 4.65 $\pm$ 0.85 & 4.55 $\pm$ 0.80 \\
+& Nuanced Demo    & 0.686 $\pm$ 0.032 & 0.301 $\pm$ 0.015 & \textbf{0.247 $\pm$ 0.013} & 5.00 $\pm$ 1.22 & 4.70 $\pm$ 1.14 \\
+& Summary         & 0.680 $\pm$ 0.035 & 0.309 $\pm$ 0.016 & \textbf{0.247 $\pm$ 0.010} & \textbf{5.95 $\pm$ 1.20} & \textbf{5.65 $\pm$ 1.06} \\
+& Mem (Baseline)  & 0.567 $\pm$ 0.000 & N/A & N/A & 10.00 $\pm$ 0.00 & N/A \\
+\midrule
+20 
+& Demographic     & 0.665 $\pm$ 0.025 & \textbf{0.337 $\pm$ 0.013} & 0.277 $\pm$ 0.010 & 4.30 $\pm$ 0.90 & 4.30 $\pm$ 0.90 \\
+& No Persona      & \textbf{0.660 $\pm$ 0.018} & 0.334 $\pm$ 0.010 & 0.279 $\pm$ 0.013 & 4.60 $\pm$ 0.66 & 4.50 $\pm$ 0.67 \\
+& Nuanced Demo    & 0.664 $\pm$ 0.023 & 0.326 $\pm$ 0.013 & 0.277 $\pm$ 0.012 & 4.35 $\pm$ 0.85 & 4.30 $\pm$ 0.84 \\
+& Summary         & 0.668 $\pm$ 0.040 & 0.329 $\pm$ 0.013 & \textbf{0.280 $\pm$ 0.016} & \textbf{5.30 $\pm$ 1.10} & \textbf{5.30 $\pm$ 1.05} \\
+& Mem (Baseline)  & 0.576 $\pm$ 0.000 & N/A & N/A & 12.40 $\pm$ 1.85 & N/A \\
+\midrule
+30 
+& Demographic     & 0.670 $\pm$ 0.030 & 0.354 $\pm$ 0.008 & 0.301 $\pm$ 0.014 & 4.30 $\pm$ 0.95 & 4.25 $\pm$ 0.83 \\
+& No Persona      & 0.681 $\pm$ 0.037 & 0.355 $\pm$ 0.007 & \textbf{0.307 $\pm$ 0.010} & 3.90 $\pm$ 1.14 & 3.85 $\pm$ 1.15 \\
+& Nuanced Demo    & 0.648 $\pm$ 0.023 & 0.348 $\pm$ 0.008 & 0.298 $\pm$ 0.011 & 5.05 $\pm$ 0.86 & 5.00 $\pm$ 0.84 \\
+& Summary         & \textbf{0.614 $\pm$ 0.032} & \textbf{0.367 $\pm$ 0.012} & 0.305 $\pm$ 0.015 & \textbf{5.65 $\pm$ 1.06} & \textbf{5.50 $\pm$ 1.20} \\
+& Mem (Baseline)  & 0.575 $\pm$ 0.000 & N/A & N/A & 19.80 $\pm$ 2.32 & N/A \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Effect of Union Persona Conditions (20 Hypotheses) on Similarity, Novelty, and Method Entropy Metrics across varying $t$.}
+\label{tab:persona_results_union}
+\small
+\begin{tabular}{c>{\raggedright\arraybackslash}p{3.3cm}cccc}
+\toprule
+$t$ & \textbf{Union Condition (20 Hyps)} & \textbf{Avg Pairwise Sim} $\downarrow$ & \textbf{Avg Novelty Dist} $\uparrow$ & \textbf{Min Novelty Dist} $\uparrow$ & \textbf{CMV Meth Entropy} $\uparrow$ \\
+\midrule
+0 
+& Demographic + Nuanced Demo & 0.80 $\pm$ 0.02 & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 0.34 $\pm$ 0.13 \\
+& Demographic + No Persona   & 0.80 $\pm$ 0.03 & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 0.28 $\pm$ 0.21 \\
+& Demographic + Summary      & 0.75 $\pm$ 0.02 & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 0.39 $\pm$ 0.15 \\
+& Nuanced Demo + No Persona  & 0.79 $\pm$ 0.03 & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 0.38 $\pm$ 0.22 \\
+& Nuanced Demo + Summary     & \textbf{0.74 $\pm$ 0.02} & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & \textbf{0.47 $\pm$ 0.12} \\
+& No Persona + Summary       & 0.75 $\pm$ 0.03 & \textbf{1.00 $\pm$ 0.00} & \textbf{1.00 $\pm$ 0.00} & 0.43 $\pm$ 0.18 \\
+\midrule
+10 
+& Demographic + Nuanced Demo & \textbf{0.68 $\pm$ 0.02} & 0.30 $\pm$ 0.01 & \textbf{0.24 $\pm$ 0.01} & 0.44 $\pm$ 0.10 \\
+& Demographic + No Persona   & \textbf{0.68 $\pm$ 0.02} & 0.30 $\pm$ 0.01 & \textbf{0.24 $\pm$ 0.01} & 0.49 $\pm$ 0.07 \\
+& Demographic + Summary      & \textbf{0.68 $\pm$ 0.02} & 0.30 $\pm$ 0.01 & \textbf{0.24 $\pm$ 0.01} & 0.49 $\pm$ 0.14 \\
+& Nuanced Demo + No Persona  & \textbf{0.68 $\pm$ 0.02} & \textbf{0.31 $\pm$ 0.01} & \textbf{0.24 $\pm$ 0.01} & 0.49 $\pm$ 0.11 \\
+& Nuanced Demo + Summary     & \textbf{0.68 $\pm$ 0.03} & \textbf{0.31 $\pm$ 0.01} & \textbf{0.24 $\pm$ 0.01} & 0.50 $\pm$ 0.14 \\
+& No Persona + Summary       & \textbf{0.68 $\pm$ 0.02} & \textbf{0.31 $\pm$ 0.01} & \textbf{0.24 $\pm$ 0.01} & \textbf{0.56 $\pm$ 0.12} \\
+\midrule
+20 
+& Demographic + Nuanced Demo & \textbf{0.66 $\pm$ 0.02} & \textbf{0.32 $\pm$ 0.01} & \textbf{0.25 $\pm$ 0.01} & 0.53 $\pm$ 0.05 \\
+& Demographic + No Persona   & \textbf{0.66 $\pm$ 0.02} & \textbf{0.32 $\pm$ 0.01} & \textbf{0.25 $\pm$ 0.01} & 0.53 $\pm$ 0.04 \\
+& Demographic + Summary      & 0.67 $\pm$ 0.03 & \textbf{0.32 $\pm$ 0.01} & \textbf{0.25 $\pm$ 0.02} & \textbf{0.57 $\pm$ 0.07} \\
+& Nuanced Demo + No Persona  & \textbf{0.66 $\pm$ 0.02} & \textbf{0.32 $\pm$ 0.01} & \textbf{0.25 $\pm$ 0.01} & 0.52 $\pm$ 0.06 \\
+& Nuanced Demo + Summary     & 0.67 $\pm$ 0.02 & 0.31 $\pm$ 0.01 & \textbf{0.25 $\pm$ 0.01} & 0.55 $\pm$ 0.09 \\
+& No Persona + Summary       & \textbf{0.66 $\pm$ 0.02} & \textbf{0.32 $\pm$ 0.01} & \textbf{0.25 $\pm$ 0.01} & 0.54 $\pm$ 0.08 \\
+\midrule
+30 
+& Demographic + Nuanced Demo & 0.66 $\pm$ 0.02 & 0.32 $\pm$ 0.01 & 0.26 $\pm$ 0.02 & 0.69 $\pm$ 0.07 \\
+& Demographic + No Persona   & 0.68 $\pm$ 0.03 & 0.32 $\pm$ 0.00 & \textbf{0.27 $\pm$ 0.02} & 0.64 $\pm$ 0.07 \\
+& Demographic + Summary      & 0.64 $\pm$ 0.02 & \textbf{0.33 $\pm$ 0.01} & 0.26 $\pm$ 0.02 & 0.70 $\pm$ 0.06 \\
+& Nuanced Demo + No Persona  & 0.66 $\pm$ 0.02 & 0.32 $\pm$ 0.00 & \textbf{0.27 $\pm$ 0.02} & 0.71 $\pm$ 0.07 \\
+& Nuanced Demo + Summary     & \textbf{0.63 $\pm$ 0.02} & \textbf{0.33 $\pm$ 0.01} & 0.26 $\pm$ 0.02 & \textbf{0.74 $\pm$ 0.07} \\
+& No Persona + Summary       & 0.65 $\pm$ 0.02 & \textbf{0.33 $\pm$ 0.01} & \textbf{0.27 $\pm$ 0.02} & 0.73 $\pm$ 0.05 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Subsampled Average and Minimum Novelty Distance across varying $t$.}
+\label{tab:novelty_subsampled}
+\small
+\begin{tabular}{clcc}
+\toprule
+$t$ & \textbf{Condition} & \textbf{Subsampled Avg Novelty} $\uparrow$ & \textbf{Subsampled Min Novelty} $\uparrow$ \\
+\midrule
+10 
+& Demographic  & 0.298 $\pm$ 0.014 & 0.241 $\pm$ 0.011 \\
+& No Persona   & 0.311 $\pm$ 0.016 & 0.247 $\pm$ 0.013 \\
+& Nuanced Demo & 0.301 $\pm$ 0.015 & 0.247 $\pm$ 0.013 \\
+& Summary      & 0.309 $\pm$ 0.016 & 0.247 $\pm$ 0.010 \\
+\midrule
+20 
+& Demographic  & 0.344 $\pm$ 0.012 & 0.277 $\pm$ 0.010 \\
+& No Persona   & 0.341 $\pm$ 0.012 & 0.279 $\pm$ 0.013 \\
+& Nuanced Demo & 0.332 $\pm$ 0.012 & 0.277 $\pm$ 0.012 \\
+& Summary      & 0.336 $\pm$ 0.013 & 0.280 $\pm$ 0.016 \\
+\midrule
+30 
+& Demographic  & 0.352 $\pm$ 0.009 & 0.301 $\pm$ 0.014 \\
+& No Persona   & 0.351 $\pm$ 0.007 & 0.307 $\pm$ 0.010 \\
+& Nuanced Demo & 0.347 $\pm$ 0.008 & 0.298 $\pm$ 0.011 \\
+& Summary      & 0.366 $\pm$ 0.013 & 0.305 $\pm$ 0.015 \\
+\bottomrule
+\end{tabular}
+\end{table}
