@@ -54,6 +54,32 @@ metrics: ai hivemind,novelty bench,idea bench and see how they're measuring nove
 \end{enumerate}
 % ─────────────────────────────────────────────────────────────────────
 
+% ── Persona Scaling: RQs, TODOs, Ideas (2026-08-09) ──────────────────
+\subsection{Persona Scaling — Open RQs, TODOs \& Ideas}
+
+\paragraph{Research Questions}
+\begin{enumerate}
+    \item \textbf{RQ1 (Persona Count):} How does the number of personas affect the diversity \emph{and} accuracy of generated hypotheses? What is the optimal number of personas?
+    \item \textbf{RQ2 (Persona Detail):} How detailed should personas be for this task? Which attributes are most important? What is the best $(\text{size} \times \text{attributes})$ configuration?
+    \emph{(RQ2 is harder and downstream of RQ1.)}
+\end{enumerate}
+
+\paragraph{Current Finding}
+Personas improve hypothesis diversity; more target-population-informed personas yield better diversity. However, diversity $\neq$ accuracy — random personas would be diverse but inaccurate. Dataset knowledge is essential for accuracy.
+
+\paragraph{TODOs (Namit)}
+\begin{itemize}
+    \item \todo{Scaling analysis: run for $N = 1 \to 20$ personas; plot all metrics (Avg Pairwise, Avg Novelty, Min Novelty, CD-LLM, CD-LLM-Mem) as a line plot vs.\ persona count.}
+    \item \todo{Hypothesis bucketing: instead of counting unique hypotheses (e.g., 8/20 unique), cluster semantically similar hypotheses into groups — the group count equals the current unique count. Enables reading the scaling trend without rerunning experiments.}
+\end{itemize}
+
+\paragraph{Open Ideas}
+\begin{itemize}
+    \item Formalize the diversity vs.\ accuracy tradeoff — how do we measure accuracy of generated hypotheses against ground truth?
+    \item Does persona \emph{type} (demographic vs.\ summary) matter more at higher persona counts, or does it converge?
+\end{itemize}
+% ─────────────────────────────────────────────────────────────────────
+
 % ── Work Stream Overview ──────────────────────────────────────────────
 \subsection{Work Streams}
 
