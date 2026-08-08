@@ -1,24 +1,26 @@
 \section{Introduction}
+
+% ── Active Experiment TODOs (Namit) ──────────────────────────────────
 \subsection{Our Contributions}
 \item There exists AI hivemind in hyp generation across current (inter model, intra model)
 \subsection{Papers for baselines}
 \item https://arxiv.org/pdf/2606.08251
- 
+
 https://arxiv.org/pdf/2602.21317
- 
+
 IdeaBench: Large Language Models for Research Idea Generation
- 
+
 https://arxiv.org/pdf/2504.05228
- 
-\subsection{Todo}
+
+\subsection{Active Experiment TODOs}
 \begin{enumerate}
     \item multi agent setup for social, idea, hypothesis generation.. 4 papers
     \item 5 llms with 1 persona
     \item 1 llm with 5 personas
     \item 5 llm x 5 personas
     \item 1.) start with an empty bank..and run it iteratively till you get 20 seed hypothesis
--> 1.) using 5 personas 
-    2.) same agent 5 times with no personas 
+-> 1.) using 5 personas
+    2.) same agent 5 times with no personas
 
 2.) start with 0 in the bank and run it with 10,20,30 in the bank
 and sample them from 60 statements
@@ -30,7 +32,7 @@ and sample them from 60 statements
 \item benchmark personas from my clusters vs random vs no persona
 \item best of n llm is 1 llm n times
 \item make a table about metrics.. settings -> baseline ( 1 llm call), 2nd is no. of attempts if we generate 5 times from same llm, 3rd is no. of system prompts (personas), aggregation yes or no, selection of personas (demographic/clustered), one reporting column about no of llm calls in each setting.
-\item setup the experigen with  x @harini 
+\item setup the experigen with  x @harini
 \item setup the opencode
 \item why 5 demographic personas why not 100
 \item change to no. of personas to 10,15 etc
@@ -48,8 +50,62 @@ and sample them from 60 statements
 metrics: ai hivemind,novelty bench,idea bench and see how they're measuring novelty and feasibility
 \item for novelty: seed hyp, lit, combination how is it measured..
 \item for feasibility: most compute effective and defensible way
-\item are gen hypotheses 
+\item are gen hypotheses
 \end{enumerate}
+% ─────────────────────────────────────────────────────────────────────
+
+% ── Work Stream Overview ──────────────────────────────────────────────
+\subsection{Work Streams}
+
+% ── Stream A (Pipeline Evaluation) ── DONE ────────────────────────────
+% [DONE] Stream A: Pipeline Evaluation
+% - Evaluated existing pipeline with multiple hypothesis sets
+% - Results shared with @somesh and @harini for review
+% - Standalone hypothesis_generator.py (Mode 8) implemented and validated:
+%     5 operators x 1 model (GPT-5.5), parallel generation confirmed working
+%     Stages 0-5 (dataset context, retrieval, findings, generation,
+%     operationalization check, novelty gate) all exercised end-to-end
+%     Checkpoint/resume infrastructure and caching (retrieval, findings,
+%     embeddings) confirmed functional
+% ──────────────────────────────────────────────────────────────────────
+
+% ── Stream B (Literature Loop / AI Co-scientist) ── ACTIVE ───────────
+\todo{Stream B: Add literature loop from AI Co-scientist paper; work on iterative feedback for idea refining}
+% ──────────────────────────────────────────────────────────────────────
+
+% ── Stream C (Multi-LLM / Model Fusion) ── ACTIVE ────────────────────
+\todo{Stream C: Multi-LLM / Model Fusion for hypothesis generation}
+% Code context (hypothesis\_generator.py):
+%   - Current implementation: Mode 8 = 5 OPERATORS x 1 model (GPT-5.5), 1 persona
+%     Each operator (Extension, Combination, Boundary Condition, Mediator, Moderator)
+%     runs in parallel via ThreadPoolExecutor(max\_workers=5)
+%   - OPERATORS dict and HypothesisGeneratorAgent._call() already support swapping models
+%   - Variants to implement: (a) 5 LLMs x 1 persona, (b) 1 LLM x 5 personas,
+%     (c) 5 LLMs x 5 personas — placeholders for ablation table (runs/ already has results)
+%   - Ref: https://openrouter.ai/blog/announcements/fusion-beats-frontier/
+% ──────────────────────────────────────────────────────────────────────
+
+% ── Stream D (Multi-Agent Social Simulation) ── ACTIVE ───────────────
+\todo{Stream D: Multi-agent setup for social simulation, idea, and hypothesis generation}
+% Code context (hypothesis\_generator.py):
+%   - Current: single-agent generator loop, no inter-agent communication
+%   - NOT YET: multi-agent social simulation (debater/critic/proposer roles)
+%   - Ref: https://behavior-in-the-wild.github.io/social-agents.html
+% ──────────────────────────────────────────────────────────────────────
+
+% ── Stream E (Training LLM / Agents) ── ACTIVE ───────────────────────
+\todo{Stream E: Training / fine-tuning LLMs or agents for hypothesis generation or operationalization tasks}
+% Code context:
+%   - Pipeline produces labeled output: hypothesis + op\_pass + novelty\_label per run
+%   - This output is the natural supervised signal for fine-tuning a generator
+%   - novelty\_scorer\_v2.py (KNN + embedding + LLM) could serve as reward model
+% ──────────────────────────────────────────────────────────────────────
+
+% ── Stream F (Multi-Agent Collaboration Papers) ── DONE ───────────────
+% [DONE] Stream F: Multi-Agent Collaboration Papers (@harini's 3 papers)
+% - Read all 3 papers; implemented approach on CMV problem
+%   (5 parallel operator calls in generate\_candidates() serve as the scaffold)
+% ──────────────────────────────────────────────────────────────────────
     
 \subsection{Lit Review for Literature Agents}    
 
