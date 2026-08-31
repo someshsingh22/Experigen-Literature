@@ -2,6 +2,7 @@
 
 % ── Active Experiment TODOs (Namit) ──────────────────────────────────
 \subsection{Our Contributions}
+\begin{enumerate}
 \item There exists AI hivemind in hyp generation across current (inter model, intra model)
 \subsection{Papers for baselines}
 \item https://arxiv.org/pdf/2606.08251
@@ -12,45 +13,21 @@ IdeaBench: Large Language Models for Research Idea Generation
 
 https://arxiv.org/pdf/2504.05228
 
-\subsection{Active Experiment TODOs}
+\item dataset from @harini 
+\item make the unions of hypotheses for coverage
+\item https://huggingface.co/datasets/LLM-Digital-Twin/Twin-2K-500..use this dataset to get 10 demographic questions sample randomly 
+\item reasoning off in vllm, repeat all experiments (for feasibility experiment)
+\item don't run 32 candidates run n=5 and same for others iteratively
+\item change system prompt and user template
+\item change demographic text and rewrite as proper sentences instead of just attribute tags
+\section {Our contributions}
 \begin{enumerate}
-    \item multi agent setup for social, idea, hypothesis generation.. 4 papers
-    \item 5 llms with 1 persona
-    \item 1 llm with 5 personas
-    \item 5 llm x 5 personas
-    \item 1.) start with an empty bank..and run it iteratively till you get 20 seed hypothesis
--> 1.) using 5 personas
-    2.) same agent 5 times with no personas
+\item We observed the agentic hivemind problem, which talks about how LLMs are not good at generating diverse and feasible hypotheses for social sciences in both inter and intra model setups. No. of generations doesn't affect this. It will only generate 2 semantically diverse personas in a batch of 10 otherwise it'll use synonyms at best.
 
-2.) start with 0 in the bank and run it with 10,20,30 in the bank
-and sample them from 60 statements
+\item In this paper we introduce a social agent framework. In this framework we use X datasets and X personas that are representative of their respective datasets. We've used demographic prompting to understand if age,gender,nation helps in diversifying. We benchmarked these against human literature by retrieving papers from the internet. We used metrics like vendi score and construct diversity to understand actual no. of distinct mechanisms in a batch.
 
-3.) measure novelty and diversity with t=0,10,20,30
-
-\item Sort out 5-10 personas from the dataset using clustering (improve clustering, better embeddings (using openai embeddings), centroid selection is bad. take representative samples
-\item to run the experigen skipping the analyst part
-\item benchmark personas from my clusters vs random vs no persona
-\item best of n llm is 1 llm n times
-\item make a table about metrics.. settings -> baseline ( 1 llm call), 2nd is no. of attempts if we generate 5 times from same llm, 3rd is no. of system prompts (personas), aggregation yes or no, selection of personas (demographic/clustered), one reporting column about no of llm calls in each setting.
-\item setup the experigen with  x @harini
-\item setup the opencode
-\item why 5 demographic personas why not 100
-\item change to no. of personas to 10,15 etc
-\item fix the metrics
-\item construct diversity wrt memory using new embdedding based similarity method for measuring novelty and checking the construct diversity with manual evals
-\item for clustering methods try summarizing personas
-\item experigen now vs multi llm baseline vs demographic baseline
-\item scale to 50
-\item send json of 10 clusters and representative personas
-\item we want a baseline of pure demographic personas
-\item current baseline is aligned demographic personas one thing is fix the variables to age gender country and sometimes profession
-\item exact steps for demographic personas
-\item don't run  analyst initially
-\item define methods, our methods, ablations and metrics..
-metrics: ai hivemind,novelty bench,idea bench and see how they're measuring novelty and feasibility
-\item for novelty: seed hyp, lit, combination how is it measured..
-\item for feasibility: most compute effective and defensible way
-\item are gen hypotheses
+\item We also introduce a novel algorithm to synthetically generate such agent populations, our method consistently outperform all previous fixed set of personas by X across X tasks. We show that our algorithm gives consistent gains across sizes and attributes of populations.
+\end{enumerate} 
 \end{enumerate}
 % ─────────────────────────────────────────────────────────────────────
 
