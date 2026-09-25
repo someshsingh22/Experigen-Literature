@@ -12,14 +12,29 @@ https://arxiv.org/pdf/2602.21317
 IdeaBench: Large Language Models for Research Idea Generation
 
 https://arxiv.org/pdf/2504.05228
+\item Do we accept/reject/refine hypotheses based on data or not
+\item Use train/test split and get their features (all 30 hypotheses) and eval same on test set.. using metrics from feasibility..use any sup learning algorithm
+\item get AITA dataset from @somesh @harini
+\item https://huggingface.co/datasets/nvidia/Nemotron-Personas-USA/viewer/default/train?row=0 -> try this
+\item make random subsets of cmv summary to find out the attributes
+\item for accept use only positive values
 
-\item dataset from @harini 
-\item make the unions of hypotheses for coverage
-\item https://huggingface.co/datasets/LLM-Digital-Twin/Twin-2K-500..use this dataset to get 10 demographic questions sample randomly 
-\item reasoning off in vllm, repeat all experiments (for feasibility experiment)
-\item don't run 32 candidates run n=5 and same for others iteratively
-\item change system prompt and user template
-\item change demographic text and rewrite as proper sentences instead of just attribute tags
+\section{Methodology}
+\begin{enumerate}
+    \item We start with selecting the baselines, first would be zero shot llm (no persona), second would be cmv aligned demographics,third cluster summary from the cmv dataset and two twin 2k baselines where in one we use demographics only and 2nd is more detailed with salary, religious belief, family size, etc.
+    \item Now as an input we pass a dataset, the personas and we initialize our memory bank (t) which at this stage is empty
+    \item Next we pass these 3 components to the Generator LLM as inputs which is supposed to use these to generate hypotheses,using roleplay prompting
+    \item For each baseline we have 30 personas sampled which are representative of the dataset now we run different conditions where no. of personas (n) is tested at 5,10,15,20,25,30.
+    \item Each persona generates exactly one hypotheses. So for example n=5 will generate 5 hypotheses and we'll pick one from those 5 which will be semantically farthest i.e maximum novel and increment the memory bank which now becomes 1. This operation is run iteratively till our bank becomes of size 30.  
+    \item The role of hypotheses appending in the memory is to get passed as user template for the next round where we ask the llm to not generate hypotheses that has this mechanism
+    \item Finally we record the diversity at t=10,20,30 bank size and measure the diversity using a metric called as Vendi Score.
+    \item Vendi score = effective number of distinct hypotheses in a bank (exp of the entropy of the embedding similarity matrix's eigenvalues). A bank of 30 near-duplicates scores ~1; 30 genuinely different ideas score ~30.
+    \begin{figure}[H]
+\centering
+\includegraphics[width=1.2\linewidth]{figures/meth.png}
+\label{fig:vendi plot}
+\end{figure}
+\end{enumerate}
 \section {Our contributions}
 \begin{enumerate}
 \item We observed the agentic hivemind problem, which talks about how LLMs are not good at generating diverse and feasible hypotheses for social sciences in both inter and intra model setups. No. of generations doesn't affect this. It will only generate 2 semantically diverse personas in a batch of 10 otherwise it'll use synonyms at best.
