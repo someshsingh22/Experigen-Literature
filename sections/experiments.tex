@@ -814,3 +814,121 @@ Table~\ref{tab:reduction_vendi_vs_accuracy} places the bank diversity from Table
 \end{tabular}%
 }
 \end{table}
+
+\begin{table}[H]
+\centering
+\caption{Test-set metrics on a single 80/20 split. Bold marks the best value in each column.}
+\label{tab:split8020-metrics}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Condition} & \textbf{Accuracy} $\uparrow$ & \textbf{Precision} $\uparrow$ & \textbf{Recall} $\uparrow$ & \textbf{F1} $\uparrow$ & \textbf{ROC-AUC} $\uparrow$ & \textbf{Utility} $\uparrow$ \\
+\midrule
+CMV Summary & \textbf{59.49\%} & \textbf{0.5852} & \textbf{0.6519} & \textbf{0.6168} & \textbf{0.6195} & \textbf{0.6104} \\
+No Persona & 58.23\% & 0.5765 & 0.6203 & 0.5976 & 0.5992 & 0.5930 \\
+Twin 2K Summary & 56.65\% & 0.5660 & 0.5696 & 0.5678 & 0.6056 & 0.5800 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Five-fold cross-validation metrics. Bold marks the best value in each column.}
+\label{tab:cv5-metrics}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Condition} & \textbf{Accuracy} $\uparrow$ & \textbf{Precision} $\uparrow$ & \textbf{Recall} $\uparrow$ & \textbf{F1} $\uparrow$ & \textbf{ROC-AUC} $\uparrow$ & \textbf{Utility} $\uparrow$ \\
+\midrule
+CMV Summary & \textbf{62.01\%} & 0.6107 & \textbf{0.6616} & \textbf{0.6349} & \textbf{0.6589} & \textbf{0.6380} \\
+No Persona & 61.06\% & 0.6061 & 0.6325 & 0.6185 & 0.6388 & 0.6227 \\
+Twin 2K Summary & 60.93\% & \textbf{0.6130} & 0.6008 & 0.6061 & 0.6443 & 0.6199 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Vendi diversity by condition across three repetitions (H1--H3), with mean $\pm$ standard deviation. Bold marks the best value in each column. (This run had no persona at G2 and G3.)}
+\label{tab:vendi-h1h3-reps}
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Condition} & \textbf{H1} $\uparrow$ & \textbf{H2} $\uparrow$ & \textbf{H3} $\uparrow$ & \textbf{Mean $\pm$ SD} $\uparrow$ \\
+\midrule
+CMV Summary & \textbf{6.586} & \textbf{5.935} & \textbf{6.432} & \textbf{6.317 $\pm$ 0.340} \\
+No Persona & 5.847 & 5.556 & 5.349 & 5.584 $\pm$ 0.250 \\
+Twin 2K Summary & 5.191 & 5.434 & 5.334 & 5.320 $\pm$ 0.122 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Table 22 hypotheses on 15 personas selected serially this is Cross Validation metrics}
+\label{tab:cv5-n15}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Condition} & \textbf{Accuracy} $\uparrow$ & \textbf{Precision} $\uparrow$ & \textbf{Recall} $\uparrow$ & \textbf{F1} $\uparrow$ & \textbf{ROC-AUC} $\uparrow$ & \textbf{Utility} $\uparrow$ \\
+\midrule
+CMV Summary & \textbf{61.82\%} & 0.6084 & \textbf{0.6578} & \textbf{0.6322} & \textbf{0.6601} & \textbf{0.6369} \\
+No Persona & 60.94\% & 0.6009 & 0.6451 & 0.6222 & 0.6354 & 0.6224 \\
+Twin 2K Summary & 61.19\% & \textbf{0.6109} & 0.6109 & 0.6109 & 0.6372 & 0.6200 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Test-set metrics for the same table above}
+\label{tab:test-n15}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Condition} & \textbf{Accuracy} $\uparrow$ & \textbf{Precision} $\uparrow$ & \textbf{Recall} $\uparrow$ & \textbf{F1} $\uparrow$ & \textbf{ROC-AUC} $\uparrow$ & \textbf{Utility} $\uparrow$ \\
+\midrule
+CMV Summary & \textbf{58.23\%} & 0.5747 & \textbf{0.6329} & \textbf{0.6024} & \textbf{0.6244} & \textbf{0.6030} \\
+No Persona & \textbf{58.23\%} & \textbf{0.5765} & 0.6203 & 0.5976 & 0.5860 & 0.5886 \\
+Twin 2K Summary & 56.96\% & 0.5696 & 0.5696 & 0.5696 & 0.6020 & 0.5804 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{AITA and News Headlines generators, 30 personas: Vendi diversity and CD-LLM by memory depth $t$. Bold marks the best value in each column (ties all bold).}
+\label{tab:aita-news-vendi-cdllm-30personas}
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l|cccccc|cccccc}
+\toprule
+& \multicolumn{6}{c|}{\textbf{AITA}} & \multicolumn{6}{c}{\textbf{News}} \\
+\cmidrule(lr){2-7}\cmidrule(lr){8-13}
+& \multicolumn{3}{c}{\textbf{Vendi} $\uparrow$} & \multicolumn{3}{c|}{\textbf{CD-LLM} $\uparrow$} & \multicolumn{3}{c}{\textbf{Vendi} $\uparrow$} & \multicolumn{3}{c}{\textbf{CD-LLM} $\uparrow$} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}
+\textbf{Condition} & \textbf{$t$=10} & \textbf{$t$=20} & \textbf{$t$=30} & \textbf{$t$=10} & \textbf{$t$=20} & \textbf{$t$=30} & \textbf{$t$=10} & \textbf{$t$=20} & \textbf{$t$=30} & \textbf{$t$=10} & \textbf{$t$=20} & \textbf{$t$=30} \\
+\midrule
+No Persona & 4.3549 & \textbf{5.7573} & 6.2772 & \textbf{4} & 4 & 4 & 2.8311 & 3.3381 & 3.6634 & \textbf{4} & 4 & 3 \\
+CMV Summary & \textbf{4.3699} & 5.6827 & \textbf{6.7121} & \textbf{4} & \textbf{5} & \textbf{5} & \textbf{3.3915} & \textbf{4.1937} & 4.5714 & \textbf{4} & \textbf{5} & \textbf{5} \\
+Twin 2K & 4.3646 & 5.1827 & 5.9242 & \textbf{4} & 4 & \textbf{5} & 3.1856 & 4.1132 & \textbf{4.5883} & \textbf{4} & 4 & \textbf{5} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Vendi score with 30 personas (outer loop) and 3 inner loop refinements, CMV, AITA and News. Bold marks the best value in each column.}
+\label{tab:vendi-cmv-aita-15personas-innerloop}
+\small
+\begin{tabular}{l|c|c|c}
+\toprule
+\textbf{Condition} & \textbf{CMV} $\uparrow$ & \textbf{AITA} $\uparrow$ & \textbf{News} $\uparrow$ \\
+\midrule
+No Persona  & 7.3425 & 6.3472 & 3.6634 \\
+CMV Summary & \textbf{9.2239} & \textbf{6.9121} & 4.5714 \\
+Twin 2K     & 8.1800 & 5.7242 & \textbf{4.5883} \\
+\bottomrule
+\end{tabular}
+\end{table}
