@@ -1,4 +1,45 @@
 \section{Introduction}
+Autoresearch systems automate the cycle of proposing ideas, running experiments, and using their outcomes to guide further investigation \citep{karpathy2026autoresearch}. Yet an agent can produce a new hypothesis at each iteration while repeatedly revisiting the same explanation. This lack of hypothesis diversity limits the value of an otherwise productive research loop: the bank grows, but the range of relationships considered may change little. The distinction is consequential in social science, where testing a proposal can require operationalizing a construct, accounting for confounders, or collecting additional observations. Repeatedly examining closely related accounts leaves less capacity to investigate alternatives. A useful discovery system should therefore offer researchers a range of distinct, testable explanations, alongside evidence about which of them predict the observed outcomes.
+\somesh{The problem statement is immediately not clear, it should be patent that, in this work, we are showing that an 'agentic' 'hivemind exists' in 'data driven sciences' while proposing 'ideas' and 'hypotheses'}
+
+Recent methods provide increasingly capable tools for generating hypotheses from data. HypoGeniC iteratively refines natural-language hypotheses using labeled observations \citep{zhou2024hypothesis}, while ExperiGen connects generation to statistical testing and experimental feedback \citep{sengupta2026experigen}. These advances help assess and improve individual proposals. The quality of a hypothesis bank also depends on what its proposals collectively cover. For a system studying persuasion, hypotheses about citing sources and supplying external evidence may describe much the same relationship. Both could predict successful counterarguments, yet neither examines whether acknowledging another person's concerns or appealing to shared values also matters. Predictive performance alone cannot establish whether a system has explored these alternatives.
+
+The \emph{Artificial Hivemind} study gives a broader reason to examine this issue: language models often produce similar responses both within repeated samples and across model families \citep{jiang2025artificialhivemind}. Our concern is the diversity of hypotheses generated from social-science data. In this setting, useful variation lies in the constructs and proposed mechanisms that a researcher could investigate. Differences in wording are insufficient when they leave the underlying account unchanged. We examine whether this convergence also appears in data-grounded hypothesis generation, and how persona conditioning relates to explanatory diversity and predictive utility.
+
+\somesh{We are engaging too much with related work here}
+
+\somesh{Persona Conditioning in a separate draft}
+Persona conditioning offers a way to vary the perspectives from which a model approaches the same material. Persona Hub uses descriptions of people's backgrounds and interests to steer diverse synthetic generation \citep{ge2024personahub}, and Social Agents aggregates independent persona judgments for behavioral prediction \citep{bhattacharyya2026social}. These findings motivate a related question for scientific discovery: can persona information change which explanations an agent proposes from a fixed dataset? This makes the content of a profile a substantive choice. A description relevant to the behavior under study may suggest relationships that a generic prompt overlooks; additional biographical detail may also introduce variation with little empirical value. We therefore treat persona population size, descriptive attributes, and dataset relevance as experimental choices whose effects on diversity and utility must be measured.
+
+We draw profiles from CMV author personas \citep{yuCmvAuthorPersonas} and Twin-2K-500 \citep{toubia2025twin2k500} to condition hypothesis generation, using \emph{farthest-first} selection to retain proposals that add semantic novelty to a shared memory bank. We evaluate on ChangeMyView (CMV) persuasion, Am I the Asshole (AITA) community judgments, and news headline selection. Normalized embedding-based \emph{Vendi} \citep{friedman2023vendi} and LLM-judged \emph{Construct Diversity} assess hypothesis diversity; ROC-AUC and F1 assess predictive utility.
+
+We find substantial convergence in the hypotheses generated under the conditions we study \somesh{This is curtailing your contributions}. Without personas, normalized \somesh{Never bring unintroudced terms}Vendi is approximately 21\%; with persona conditioning, it rises to approximately 31\%, compared with 66.67\% for human-generated hypotheses. Detailed profiles relevant to the dataset yield more diverse hypotheses than sparse or less relevant profiles, and attribute-removal ablations suggest that profile content matters. Yet providing different profiles does not guarantee diverse collective output: a persona council, in which agents collaborate on their proposals, remains near 20\%. Together, these observations show that measured diversity varies with the information and interaction setting used for generation, while convergence persists across the conditions examined.
+
+Dataset-relevant detail also improves ROC-AUC in the comparisons we evaluate, but the configurations with the greatest diversity do not consistently achieve the highest ROC-AUC or F1. Choosing a persona population therefore involves balancing the range of explanations it produces with their predictive usefulness. These findings highlight the importance of examining both the diversity and predictive utility of hypothesis banks when studying convergence in agentic research.
+
+
+Our Contributions:
+
+1. We show that LLMs collapse their idea diversity in data driven sciences across XXX tasks and show that even scaling up the data, the ideas do not get more diverse.
+2. We show that there exists an agentic hivemind across XXX models, where even across models this diversity does not improve
+3. We show that in data driven sciences or sciences with higher costs of verification, current iterative algorithms are suboptimal we evaluate this along XXX methods
+4. We compare the hivemeind with human creativity and show that current models have not improved, and there is a jagged frontier in creativity.
+
+\subsection{Lit Review}
+1. Paper should be about or mentioning : Diverse Ideas/Hypothesis/Autoresearch generation
+    1. What environments/datasets are the papers targeting: Science, Engineering, Math or Data driven
+    2. What do they say about diversity of hypothesis: is it good, is it bad, are they solving it?
+    3. How are they solving it: Literature/Iterative Algorithm (Evolutionary Search), temperature, prompt, sampling, ...
+    4. What are their metrics of scientific diversity
+
+2. Apart from Hypogenic what are other datasets or tasks
+
+\subsection{Experimental Setup}
+1. Metrics: Vendi or CD\_LLM or whatever is the consensus from Lit review
+2. Methods: Depending upon Lit Review
+3. Experiments: TBD
+
+randomness: data seeds, datasets for a given task, model's size and family, data size, tasks
 
 % ── Active Experiment TODOs (Namit) ──────────────────────────────────
 \subsection{Our Contributions}
@@ -14,18 +55,22 @@ IdeaBench: Large Language Models for Research Idea Generation
 https://arxiv.org/pdf/2504.05228
 \item Think and experiment about persona collaboration
 \item Harnessing with budget and tools
-\item Run an experiment like llm council use different personas instead of models
 
-
-\item stochasticity- data seed, model's inital hypothesis, time spent on certain hypothesis, trajectory, harness...
+\item Sources of randomness: data seed, model's inital hypothesis, time spent on certain hypothesis, trajectory, harness.
 \item Personas
 - simulate their own behavior
 - simulate the behavior of someone else
 - personas of scientists
 \item show personas help with diversity on inifity chat
-\item build aita personas
 \item Personas help with diversity, release our 2k personas
-\item 
+\item To break hivemind in agents the strategy that works for humans doesnt work here
+\item Multiple random seeds, starting seeds, datasets
+\item Compare with humans and how they're better at vendi than agents
+\item Get model keys from @Harini for LLMs
+\item Change the first para to sound more like what is the problem and what the paper talks about
+\item Get rid of the personas section for now
+\item Shorten the related work section Recent methods paragraph
+\item
 \section{Methodology}
 \begin{enumerate}
     \item We start with selecting the baselines, first would be zero shot llm (no persona), second would be cmv aligned demographics,third cluster summary from the cmv dataset and two twin 2k baselines where in one we use demographics only and 2nd is more detailed with salary, religious belief, family size, etc.

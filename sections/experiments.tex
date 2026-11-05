@@ -275,40 +275,121 @@ Twin Ablation 2 & 0.517 [0.494, 0.539] & -0.105 [-0.136, -0.075] & 0.000 \\
 
 \begin{table}[H]
 \centering
-\caption{Vendi score with 30 personas (outer loop) and 3 inner loop refinements, with logistic evals (F1, ROC-AUC) on CMV and AITA.}
+\caption{ExperiGen loop runs.}
 \label{tab:vendi-cmv-aita-15personas-innerloop}
 \small
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{l|ccc|ccc|c}
+\begin{tabular}{llccc}
 \toprule
-& \multicolumn{3}{c|}{\textbf{CMV}} & \multicolumn{3}{c|}{\textbf{AITA}} & \textbf{News} \\
-\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-8}
-\textbf{Condition} & \textbf{Vendi} $\uparrow$ & \textbf{F1} $\uparrow$ & \textbf{ROC-AUC} $\uparrow$ & \textbf{Vendi} $\uparrow$ & \textbf{F1} $\uparrow$ & \textbf{ROC-AUC} $\uparrow$ & \textbf{Vendi} $\uparrow$ \\
+\textbf{Dataset} & \textbf{Condition} & \textbf{Vendi} $\uparrow$ & \textbf{F1} $\uparrow$ & \textbf{ROC-AUC} $\uparrow$ \\
 \midrule
-No Persona  & 7.3425 & 0.5911 & 0.6179 & 6.3472 & 0.5572 & 0.6073 & 3.6634 \\
-CMV Summary & \textbf{9.2239} & \textbf{0.5931} & 0.6096 & \textbf{6.9121} & \textbf{0.6890} & \textbf{0.7388} & 4.5714 \\
-Twin 2K     & 8.1800 & 0.5677 & \textbf{0.6332} & 5.7242 & 0.6158 & 0.6936 & \textbf{4.5883} \\
+CMV & No Persona & 7.3425 & 0.6058 & 0.6349 $\pm$ 0.0318 \\
+CMV & CMV Summary & \textbf{9.2239} & \textbf{0.6319} & \textbf{0.6557 $\pm$ 0.0264} \\
+CMV & Twin 2K & 8.1800 & 0.5880 & 0.6286 $\pm$ 0.0170 \\
+\midrule
+AITA & No Persona & 6.3472 & 0.5552 & 0.6045 $\pm$ 0.0249 \\
+AITA & CMV Summary & \textbf{6.9121} & \textbf{0.6452} & \textbf{0.6817 $\pm$ 0.0316} \\
+AITA & Twin 2K & 5.7242 & 0.5862 & 0.6596 $\pm$ 0.0196 \\
+\midrule
+News & No Persona & 7.9579 & 0.5521 & 0.5878 $\pm$ 0.0215 \\
+News & CMV Summary & \textbf{9.4128} & 0.5838 & 0.6238 $\pm$ 0.0247 \\
+News & Twin 2K & 7.7757 & \textbf{0.5866} & \textbf{0.6286 $\pm$ 0.0167} \\
 \bottomrule
-\end{tabular}%
-}
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Persona council.}
+\label{tab:persona-council}
+\small
+\begin{tabular}{llccc}
+\toprule
+\textbf{Dataset} & \textbf{Condition} & \textbf{Vendi} $\uparrow$ & \textbf{F1} $\uparrow$ & \textbf{ROC-AUC} $\uparrow$ \\
+\midrule
+CMV & No Persona & 5.2751 & \textbf{0.6522} & \textbf{0.6898 $\pm$ 0.0298} \\
+CMV & CMV Summary & 5.7165 & 0.6132 & 0.6432 $\pm$ 0.0321 \\
+CMV & Twin 2K Summary & \textbf{6.4454} & 0.5407 & 0.5424 $\pm$ 0.0358 \\
+\midrule
+AITA & No Persona & \textbf{5.8009} & 0.6255 & \textbf{0.6772 $\pm$ 0.0383} \\
+AITA & CMV Summary & 5.8006 & 0.5582 & 0.5944 $\pm$ 0.0290 \\
+AITA & Twin 2K Summary & 5.7425 & \textbf{0.6303} & 0.6631 $\pm$ 0.0394 \\
+\midrule
+News & No Persona & 6.6390 & 0.5874 & 0.6207 $\pm$ 0.0222 \\
+News & CMV Summary & 6.3659 & 0.5743 & 0.6164 $\pm$ 0.0220 \\
+News & Twin 2K Summary & \textbf{6.9653} & \textbf{0.5942} & \textbf{0.6345 $\pm$ 0.0211} \\
+\bottomrule
+\end{tabular}
 \end{table}
 
 \begin{table}[H]
 \centering
-\caption{Persona council Vendi score on 30 agents each and accuracy results.}
-\label{tab:persona-council}
-\scriptsize
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{l|ccc|ccc|ccc}
+\caption{DeepSeek V2.5 (236B total, 21B active): Vendi score for Persona Council and Iterative Algorithm. Bold marks the best value in each column.}
+\label{tab:model-deepseek-v25}
+\small
+\begin{tabular}{l|ccc|ccc}
 \toprule
-& \multicolumn{3}{c|}{\textbf{AITA}} & \multicolumn{3}{c|}{\textbf{CMV}} & \multicolumn{3}{c}{\textbf{News}} \\
-\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
-\textbf{Condition} & \textbf{Vendi} $\uparrow$ & \textbf{ROC-AUC} $\uparrow$ & \textbf{F1} $\uparrow$ & \textbf{Vendi} $\uparrow$ & \textbf{ROC-AUC} $\uparrow$ & \textbf{F1} $\uparrow$ & \textbf{Vendi} $\uparrow$ & \textbf{ROC-AUC} $\uparrow$ & \textbf{F1} $\uparrow$ \\
+& \multicolumn{3}{c|}{\textbf{Persona Council} $\uparrow$} & \multicolumn{3}{c}{\textbf{Iterative Algorithm} $\uparrow$} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\textbf{Condition} & \textbf{CMV} & \textbf{AITA} & \textbf{News} & \textbf{CMV} & \textbf{AITA} & \textbf{News} \\
 \midrule
-No Persona      & \textbf{5.8009} & \textbf{0.6772 $\pm$ 0.0383} & 0.6255 & 5.2751 & \textbf{0.6898 $\pm$ 0.0298} & \textbf{0.6522} & 6.6390 & 0.6207 $\pm$ 0.0222 & 0.5874 \\
-CMV Summary     & 5.8006 & 0.5944 $\pm$ 0.0290 & 0.5582 & 5.7165 & 0.6432 $\pm$ 0.0321 & 0.6132 & 6.3659 & 0.6164 $\pm$ 0.0220 & 0.5743 \\
-Twin 2K Summary & 5.7425 & 0.6631 $\pm$ 0.0394 & \textbf{0.6303} & \textbf{6.4454} & 0.5424 $\pm$ 0.0358 & 0.5407 & \textbf{6.9653} & \textbf{0.6345 $\pm$ 0.0211} & \textbf{0.5942} \\
+No Persona & 3.0432 & 3.6468 & 5.0785 & \textbf{5.0649} & 3.6285 & \textbf{6.4978} \\
+CMV Summary & \textbf{3.1115} & 3.7225 & \textbf{6.6275} & 3.8722 & 5.4525 & 6.3418 \\
+Twin 2K Summary & 2.9803 & \textbf{3.9227} & 5.3230 & 5.0303 & \textbf{6.6329} & 5.5023 \\
 \bottomrule
-\end{tabular}%
-}
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Qwen3 (235B total, 22B active): Vendi score for Persona Council and Iterative Algorithm. Bold marks the best value in each column.}
+\label{tab:model-qwen3}
+\small
+\begin{tabular}{l|ccc|ccc}
+\toprule
+& \multicolumn{3}{c|}{\textbf{Persona Council} $\uparrow$} & \multicolumn{3}{c}{\textbf{Iterative Algorithm} $\uparrow$} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\textbf{Condition} & \textbf{CMV} & \textbf{AITA} & \textbf{News} & \textbf{CMV} & \textbf{AITA} & \textbf{News} \\
+\midrule
+No Persona & \textbf{4.7230} & \textbf{5.2129} & 6.5469 & 5.3692 & 5.6813 & 5.9914 \\
+CMV Summary & 3.9809 & 5.1168 & 6.1948 & \textbf{6.1836} & \textbf{6.7730} & \textbf{7.5982} \\
+Twin 2K Summary & 3.5304 & 3.7056 & \textbf{8.4339} & 4.1437 & 5.8489 & 7.2956 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Qwen3.6 (35B total, 3B active): Vendi score for Persona Council and Iterative Algorithm. Bold marks the best value in each column.}
+\label{tab:model-qwen36}
+\small
+\begin{tabular}{l|ccc|ccc}
+\toprule
+& \multicolumn{3}{c|}{\textbf{Persona Council} $\uparrow$} & \multicolumn{3}{c}{\textbf{Iterative Algorithm} $\uparrow$} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\textbf{Condition} & \textbf{CMV} & \textbf{AITA} & \textbf{News} & \textbf{CMV} & \textbf{AITA} & \textbf{News} \\
+\midrule
+No Persona & 4.1063 & 5.1866 & 5.9371 & 5.3977 & 6.5497 & 7.1302 \\
+CMV Summary & \textbf{5.7467} & 6.2962 & \textbf{6.4572} & 7.5406 & \textbf{10.1287} & \textbf{7.5273} \\
+Twin 2K Summary & 4.2782 & \textbf{6.3256} & 6.2622 & \textbf{8.2076} & 7.9385 & 6.8890 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Gemma 4 (31B dense): Vendi score for Persona Council and Iterative Algorithm. Bold marks the best value in each column.}
+\label{tab:model-gemma4}
+\small
+\begin{tabular}{l|ccc|ccc}
+\toprule
+& \multicolumn{3}{c|}{\textbf{Persona Council} $\uparrow$} & \multicolumn{3}{c}{\textbf{Iterative Algorithm} $\uparrow$} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\textbf{Condition} & \textbf{CMV} & \textbf{AITA} & \textbf{News} & \textbf{CMV} & \textbf{AITA} & \textbf{News} \\
+\midrule
+No Persona & 4.1003 & 5.2942 & 6.0965 & 5.3620 & 5.4895 & 6.9529 \\
+CMV Summary & 5.1446 & 5.6054 & \textbf{7.0640} & \textbf{6.9024} & 7.2051 & \textbf{7.7800} \\
+Twin 2K Summary & \textbf{5.3937} & \textbf{5.9455} & 5.4718 & 5.7685 & \textbf{7.3211} & 6.8388 \\
+\bottomrule
+\end{tabular}
 \end{table}
