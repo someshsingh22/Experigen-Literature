@@ -1,5 +1,5 @@
 % Requires in preamble: \usepackage{graphicx} (for \resizebox), \usepackage{float} (for [H] placement),
-% and \usepackage{booktabs} (for \toprule/\midrule/\cmidrule/\bottomrule)
+% and \usepackage{booktabs} (for \toprule/\midrule/\cmidrule/\bottomrule), and \usepackage{hyperref} (for the \href dataset links under Table 12)
 %
 % CHANGES IN THIS VERSION
 % 1. Every table is now [H] (was [p] for Tables 13-17 and the legacy blocks). [p] sends a table to a
@@ -14,6 +14,9 @@
 % Ideally this goes once in your real preamble.
 \raggedbottom
 \section{Experiments}
+
+
+
 
 \begin{table}[H]
 \centering
@@ -393,3 +396,262 @@ Twin 2K Summary & \textbf{5.3937} & \textbf{5.9455} & 5.4718 & 5.7685 & \textbf{
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{table}[H]
+\centering
+\caption{Experimental setup. Additional methods and controlled datasets are
+candidates for selection; metrics are applied where appropriate to each task.
+For mixture-of-experts models, total and active parameter counts are shown.}
+\label{tab:experimental-setup-overview}
+\begingroup
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}p{0.14\textwidth}p{0.24\textwidth}p{0.17\textwidth}p{0.18\textwidth}p{0.23\textwidth}@{}}
+\toprule
+\textbf{Models} & \textbf{Methods} & \textbf{Tasks} & \textbf{Datasets} & \textbf{Metrics} \\
+\midrule
+\raggedright
+Qwen3.6\newline
+35B total, 3B active\newline
+\newline
+Qwen3\newline
+235B total, 22B active\newline
+\newline
+Gemma 4\newline
+31B dense\newline
+\newline
+DeepSeek V2.5\newline
+236B total, 21B active
+&
+\raggedright
+\textit{Existing / anchor}\newline
+Zero-shot + data\newline
+HypoGeniC\newline
+ExperiGen (Generator Only)\newline
+Ours (farthest-first)\newline
+\newline
+\textit{Additional candidates}\newline
+Iterative Hypothesis Refinement\newline
+Mixture of Concepts\newline
+HypoRefine
+&
+\raggedright
+\textit{Real-data tasks}\newline
+Persuasion\newline
+Community judgment\newline
+Headline selection\newline
+Deception detection\newline
+Stress detection\newline
+\newline
+\textit{Controlled tasks}\newline
+Known-rule discovery\newline
+Coverage of valid explanations
+&
+\raggedright
+\textit{Real data}\newline
+CMV\newline
+AITA\newline
+News headline pairs\newline
+Deceptive hotel reviews\newline
+Dreaddit\newline
+\newline
+\textit{Controlled alternatives}\newline
+HypoBench synthetic\newline
+HypoSpace
+&
+\raggedright
+\textit{Within-bank diversity}\newline
+Vendi Score\newline
+Construct Diversity\newline
+\newline
+\textit{Across models}\newline
+Mechanism overlap\newline
+Additional mechanisms\newline
+\newline
+\textit{Controlled settings}\newline
+Rule recovery\newline
+Valid-space coverage\newline
+\newline
+\textit{Predictive utility}\newline
+ROC-AUC, F1\newline
+\newline
+\textit{Verification efficiency}\newline
+Distinct supported explanations per budget
+\tabularnewline
+\bottomrule
+\end{tabular}%
+}
+\endgroup
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Results on the CMV, Anthropic, CMS, and Debate datasets. Bold marks the best value in each column.}
+\label{tab:additional-datasets}
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Condition} & \textbf{CMV} & \textbf{Anthropic} & \textbf{CMS} & \textbf{Debate} \\
+\midrule
+No Persona & 7.3425 & 6.0185 & 3.6221 & 4.6712 \\
+CMV Summary & \textbf{9.2239} & \textbf{8.1318} & \textbf{4.1085} & \textbf{8.2216} \\
+Twin 2K Summary & 8.1800 & 6.5081 & 3.1781 & 6.2720 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.96\textwidth}\footnotesize\raggedright
+\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\topsep}{2pt}\setlength{\parsep}{0pt}
+\item \textbf{Anthropic Persuasion:} people read a human- or AI-written argument and rate their agreement before and after; the outcome measures change in agreement. \href{https://huggingface.co/datasets/Anthropic/persuasion}{\texttt{https://huggingface.co/\allowbreak datasets/\allowbreak Anthropic/\allowbreak persuasion}}
+\item \textbf{CMS / ChangeMyStance} (COLING 2020)\textbf{:} readers observe opposing arguments on Debate.org and report their stance before and after the debate. \href{https://doi.org/10.6084/m9.figshare.28327019}{\texttt{https://doi.org/\allowbreak 10.6084/\allowbreak m9.figshare.28327019}}
+\item \textbf{DEBATE} (NeurIPS 2026)\textbf{:} people exchange arguments over three rounds of discussion; their private initial and final opinions measure change in agreement. \href{https://huggingface.co/datasets/seantw/DEBATE_LLM}{\texttt{https://huggingface.co/\allowbreak datasets/\allowbreak seantw/\allowbreak DEBATE\_LLM}}
+\end{itemize}
+\end{minipage}
+\end{table}
+
+% HypoGeniC reference scores supplied by author; additional datasets: AITA=9.0553, News=6.0762.
+% Dataset comparison: memory ON.
+\begin{table}[H]
+\centering
+\refstepcounter{table}
+\label{tab:llm-vs-agentic}
+\label{tab:llm-vs-agentic-anthropic}
+\label{tab:llm-vs-agentic-cms}
+\label{tab:llm-vs-agentic-debate}
+\textbf{Memory ON}\par\smallskip
+\label{tab:persuasion-vendi-memory-on}
+\begingroup
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.08}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l*{12}{c}@{}}
+\toprule[0.8pt]
+\textbf{Method} & \multicolumn{2}{c}{\textbf{CMV}} & \multicolumn{2}{c}{\textbf{Anthropic}} & \multicolumn{2}{c}{\textbf{CMS}} & \multicolumn{2}{c}{\textbf{DEBATE}} & \multicolumn{2}{c}{\textbf{AITA}} & \multicolumn{2}{c}{\textbf{News}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(lr){10-11}\cmidrule(lr){12-13}
+& Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ \\
+\midrule[0.4pt]
+\multicolumn{13}{@{}l}{\textbf{LLM Methods}} \\
+\midrule[0.4pt]
+% Zero Shot reference: 30 independent generations, without cross-generation memory.
+Zero Shot & 5.3444 & & 5.4173 & & 3.7568 & & 6.5612 & & 5.5035 & & 4.4537 & \\
+Mixture of Concepts & & & & & & & & & & & & \\
+\midrule[0.4pt]
+\multicolumn{13}{@{}l}{\textbf{Agentic Methods}} \\
+\midrule[0.4pt]
+% AITA and News: seed 42 only (n_seeds=1); other dataset columns retain their existing results.
+Direct & 5.6498 &  & 6.9456 &  & 5.3447 &  & 7.4405 & & 8.1443 & & 6.0957 & \\
+ExperiGen & 7.3425 & 0.6349 & 6.0185 & & 3.6221 & & 4.6712 & & 6.3472 & 0.6045 & \textbf{7.9579} & 0.5878 \\
+Self-Refine & 6.1622 &  & 6.9400 &  & 5.4820 &  & 5.7427 & & 7.6303 & & 6.6062 & \\
+Homo MAD & 5.1484 &  & 6.0715 &  & 3.6228 &  & 4.1391 & & 6.0520 & & 5.7527 & \\
+% CMV Hetero MAD and Creative MAD: n_seeds=1.
+Hetero MAD & 4.7294 &  &  &  &  &  &  &  &  &  &  &  \\
+Creative MAD & 5.7827 &  &  &  &  &  &  &  &  &  &  &  \\
+Voting & 5.0327 &  & 6.9353 &  & 4.3108 &  & 4.6511 & & 5.8009 & & 6.6390 & \\
+HypoGeniC & \textbf{8.0840} & & \textbf{7.4787} & & \textbf{8.2744} & & \textbf{9.5197} & & \textbf{11.0586} & & 6.6848 & \\
+\bottomrule[0.8pt]
+\end{tabular}%
+}
+\par\smallskip
+\endgroup
+\end{table}
+
+
+% Dataset comparison: memory OFF.
+\begin{table}[H]
+\centering
+\refstepcounter{table}
+\textbf{Memory OFF}\par\smallskip
+\label{tab:persuasion-vendi-memory-off}
+\begingroup
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.08}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l*{12}{c}@{}}
+\toprule[0.8pt]
+\textbf{Method} & \multicolumn{2}{c}{\textbf{CMV}} & \multicolumn{2}{c}{\textbf{Anthropic}} & \multicolumn{2}{c}{\textbf{CMS}} & \multicolumn{2}{c}{\textbf{DEBATE}} & \multicolumn{2}{c}{\textbf{AITA}} & \multicolumn{2}{c}{\textbf{News}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(lr){10-11}\cmidrule(lr){12-13}
+& Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ \\
+\midrule[0.4pt]
+\multicolumn{13}{@{}l}{\textbf{LLM Methods}} \\
+\midrule[0.4pt]
+% Zero Shot (no data); additional dataset scores: AITA=4.6072, News=3.5567.
+Zero Shot (no data) & 5.4658 & & 3.3304 & & 4.4395 & & 4.8282 & & 4.5730 & & 3.7195 & \\
+Mixture of Concepts & & & & & & & & & & & & \\
+\midrule[0.4pt]
+\multicolumn{13}{@{}l}{\textbf{Agentic Methods}} \\
+\midrule[0.4pt]
+% AITA and News: seed 42 only (n_seeds=1); other dataset columns retain their existing results.
+Direct & 5.1402 &  & 5.3175 &  & 3.3840 &  & 6.0564 & & 10.3154 & & 7.0872 & \\
+Self-Refine & 5.3161 &  & 4.3078 &  & 4.0020 &  & 5.7370 & & 6.0398 & & \textbf{7.4907} & \\
+Homo MAD & 4.2104 &  & 4.6657 &  & 3.5036 &  & 5.2762 & & 5.5694 & & 5.4209 & \\
+% CMV Hetero MAD and Creative MAD: n_seeds=1.
+Hetero MAD & 3.9035 &  &  &  &  &  &  &  &  &  &  &  \\
+Creative MAD & 4.1980 &  &  &  &  &  &  &  &  &  &  &  \\
+Voting & 3.5899 &  & 4.6359 &  & 2.3340 &  & 4.9678 & & 6.1591 & & 4.9981 & \\
+HypoGeniC & \textbf{8.0840} & & \textbf{7.4787} & & \textbf{8.2744} & & \textbf{9.5197} & & \textbf{11.0586} & & 6.6848 & \\
+\bottomrule[0.8pt]
+\end{tabular}%
+}
+\endgroup
+\end{table}
+
+
+
+
+% Table 14: paired Vendi and ROC-AUC columns; CMV, No Persona.
+\begin{table}[H]
+\centering
+\refstepcounter{table}
+\label{tab:methods-by-model}
+\begingroup
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.18}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}l*{8}{c}@{}}
+\toprule[0.8pt]
+& \multicolumn{4}{c}{\textbf{LLM Methods}} & \multicolumn{4}{c}{\textbf{Agentic Methods}} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+& \multicolumn{2}{c}{Zero Shot} & \multicolumn{2}{c}{Mixture of Concepts} & \multicolumn{2}{c}{HypoGeniC} & \multicolumn{2}{c}{ExperiGen} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+\textbf{Model} & Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ & Vendi $\uparrow$ & ROC-AUC $\uparrow$ \\
+\midrule[0.4pt]
+\shortstack[l]{\textbf{DeepSeek V2.5}\\[-1pt]{\scriptsize (236B total, 21B active)}} &  &  &  &  &  &  & 5.0649 &  \\[3pt]
+\midrule[0.4pt]
+\shortstack[l]{\textbf{Qwen3}\\[-1pt]{\scriptsize (235B total, 22B active)}} &  &  &  &  &  &  & 5.3692 &  \\[3pt]
+\midrule[0.4pt]
+\shortstack[l]{\textbf{Gemma 4}\\[-1pt]{\scriptsize (31B dense)}} &  &  &  &  &  &  & 5.3620 &  \\[3pt]
+\midrule[0.4pt]
+\shortstack[l]{\textbf{Qwen3.8}\\[-1pt]{\scriptsize (27B dense)}} &  &  &  &  &  &  & 7.3425 & 0.6349 $\pm$ 0.0318 \\[3pt]
+\bottomrule[0.8pt]
+\end{tabular}%
+}
+\endgroup
+\end{table}
+
+% Table 15: temperature sweep; values from the completed CMV No Persona run.
+% Source: logs/temperature_ff_20261117_004333/vendi/temperature_summary.csv on the GPU machine.
+\begin{table}[H]
+\centering
+\refstepcounter{table}
+\label{tab:temperature-ff-cmv-no-persona}
+\small
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{ccc}
+\toprule
+\textbf{Temperature} & \textbf{Hypotheses} & \textbf{Vendi} $\uparrow$ \\
+\midrule
+0.0 & 30 & 4.2218 \\
+0.2 & 30 & 5.4194 \\
+0.4 & 30 & 6.1321 \\
+0.6 & 30 & 7.0465 \\
+0.8 & 30 & 7.7781 \\
+1.0 & 30 & \textbf{8.0449} \\
+\bottomrule
+\end{tabular}
+\end{table}
+    
